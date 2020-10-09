@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [rgroups](https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups/rgroups) | Create a resource group for an environment. |
+| [rgroups](https://github.com/ibm-pett/acct-config-iam/tree/master/randagroups/rgroups) | Create a resource group for an environment. |
 
 ## Variables
 

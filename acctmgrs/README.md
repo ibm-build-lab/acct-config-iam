@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [acctmgrs](https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs) | Create an access group for account management and add users to make them account managers. |
+| [acctmgrs](https://github.com/ibm-pett/acct-config-iam/tree/master/acctmgrs) | Create an access group for account management and add users to make them account managers. |
 
 ## Variables
 
