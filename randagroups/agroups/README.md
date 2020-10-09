@@ -4,14 +4,14 @@ This repository contains a collection of Terraform configurations for configurin
 
 ## Configurations
 
-| Name   | Description                                                                                      | Source                                                |
-| ------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| agroups | Create the access groups to use a resource group. | TBD |
+| Name | Description |
+| ---------------- | ---------------- |
+| [agroups](https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups/agroups) | Create the access groups to use a resource group. |
 
 ## Variables
 
-| Name   | Description                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------ |
+| Name | Description |
+| ---------------- | ---------------- |
 | resource_group_name | The name of the existing resource group |
 | resource_group_id | The ID of the existing resource group |
 | admins_access_group_name | The name for the new administrators access group |

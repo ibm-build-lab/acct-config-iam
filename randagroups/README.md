@@ -4,14 +4,14 @@ This repository contains a collection of Terraform configurations for configurin
 
 ## Configurations
 
-| Name   | Description                                                                                      | Source                                                |
-| ------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| randagroups | Create a resource group and access groups for controlling access to an environment. | TBD |
+| Name | Description |
+| ---------------- | ---------------- |
+| [randagroups](https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups) | Create a resource group and access groups for controlling access to an environment. |
 
 ## Variables
 
-| Name   | Description                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------ |
+| Name | Description |
+| ---------------- | ---------------- |
 | resource_group_name | The name for the new resource group |
 | admins_access_group_name | The name for the new administrators access group |
 | users_access_group_name | The name for the new users access group |

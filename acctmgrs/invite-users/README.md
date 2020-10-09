@@ -4,14 +4,14 @@ This repository contains a collection of Terraform configurations for configurin
 
 ## Configurations
 
-| Name   | Description                                                                                      | Source                                                |
-| ------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| invite-users | Add users to the account. Also give them all Classic Infrastructure permissions. | TBD |
+| Name | Description |
+| ---------------- | ---------------- |
+| [invite-users](https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs/invite-users) | Add users to the account. Also give them all Classic Infrastructure permissions. |
 
 ## Variables
 
-| Name   | Description                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------ |
+| Name | Description |
+| ---------------- | ---------------- |
 | acct_mgr_admins_user_ids | The users to invite to the account |
 
 ## Use
