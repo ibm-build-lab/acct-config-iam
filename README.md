@@ -1,8 +1,6 @@
 # IBM Terraform configurations for IBM Cloud Identity and Access Management (IAM)
 
-This repository contains a collection of Terraform configurations for configuring IBM Cloud accounts using Identity and Access Management (IAM).
-
-See the IBM Cloud docs for [managing access to resources](https://cloud.ibm.com/docs/account?topic=account-userroles).
+This repository contains a collection of Terraform configurations for configuring IBM Cloud accounts using [Identity and Access Management](https://cloud.ibm.com/docs/account?topic=account-userroles) (IAM).
 
 ## Configurations
 
