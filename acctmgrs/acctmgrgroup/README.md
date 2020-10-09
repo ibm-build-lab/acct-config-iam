@@ -1,18 +1,19 @@
 # IBM Terraform configurations for IBM Cloud Identity and Access Management (IAM)
 
-This repository contains a collection of Terraform configurations for configuring IBM Cloud accounts using [Identity and Access Management](https://cloud.ibm.com/docs/account?topic=account-userroles) (IAM).
+This repository contains a collection of Terraform configurations for configuring Identity and Access Management (IAM) in IBM Cloud. These are focused on account management.
 
 ## Configurations
 
 | Name   | Description                                                                                      | Source                                                |
 | ------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| acctmgrs   | Create an access group for account management and add users to make them account managers.  | TBD   |
-| invite-users | Add users to the account. Also give them all Classic Infrastructure permissions. | TBD |
 | ascctmgrgroup | Create an access group with policies to manage the account and all resources in it. | TBD |
-| | | |
-| randagroups | Create a resource group and access groups for controlling access to an environment. | TBD |
-| rgroups | Create a resource group for an environment. | TBD |
-| agroups | Create the access groups to use a resource group. | TBD |
+
+## Variables
+
+| Name   | Description                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| acct_mgr_admins_access_group_name | The name for the new access group |
+| acct_mgr_admins_user_ids | The users to add to the access group |
 
 ## Use
 
