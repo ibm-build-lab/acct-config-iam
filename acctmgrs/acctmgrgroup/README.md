@@ -4,14 +4,14 @@ This repository contains a collection of Terraform configurations for configurin
 
 ## Configurations
 
-| Name   | Description                                                                                      | Source                                                |
-| ------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
-| ascctmgrgroup | Create an access group with policies to manage the account and all resources in it. | TBD |
+| Name | Description |
+| ---------------- | ---------------- |
+| [ascctmgrgroup](https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs/acctmgrgroup) | Create an access group with policies to manage the account and all resources in it. |
 
 ## Variables
 
-| Name   | Description                                                                                      |
-| ---------------- | ------------------------------------------------------------------------------------------------ |
+| Name | Description |
+| ---------------- | ---------------- |
 | acct_mgr_admins_access_group_name | The name for the new access group |
 | acct_mgr_admins_user_ids | The users to add to the access group |
 
