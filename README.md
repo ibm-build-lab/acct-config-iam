@@ -68,16 +68,13 @@ Install these configurations using the standard Terraform process:
 
 1. Account is created (Bob)
 2. Create the access group for Account Managers and users (@Ann-Umberhocker, Dave Taylor)
-    - Update `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs/terraform.tfvars`, set *acct_mgr_admins_access_group_name* to desired value (i.e. `ACCT-MGR-ADMIN`)
-    - Apply the config by running `terraform apply` in `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs`
-3. Create an environment (resource group and access group) for Schematics workspaces
-    - Update `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups/terraform.tfvars`
-    - Name the groups `schematics`, `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER`
-    - Apply the config by running `terraform apply` in `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups`
+    - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create the workspace in the `Default` resource group.
+3. Create an environment (resource group and access group) for Schematics workspaces 
+    - Run the scripts in `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups` either using Schematics or local Terraform client. If using schematics, create the workspace in the `Default` resource group.
+    - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER`
 4. Create an environment (resource group and access group) for Cloud Pak sandboxes
-    - Update `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups/terraform.tfvars`. 
-    - Name the groups `cloud-pak-sandbox`, `CLOUD-PAK-SANDBOX-ADMIN`, and `CLOUD-PAK-SANDBOX-USER`
-    - Apply the config by running `terraform apply` in `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups`
+    - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups` either using Schematics or local Terraform client. If using schematics, create the workspace in the `schematics` resource group.
+    - Name the resource group `cloud-pak-sandbox` and the access groups `CLOUD-PAK-SANDBOX-ADMIN`, and `CLOUD-PAK-SANDBOX-USER`
 5. Add users to the access groups
     - A user who will run the script to create a Cloud Pak sandbox needs to belong to both `SCHEMATICS-ADMIN` (to run the workspace in `schematics`) and to `CLOUD-PAK-SANDBOX-ADMIN` (so that the script can install the sandbox in `cloud-pak-sandbox`)
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
