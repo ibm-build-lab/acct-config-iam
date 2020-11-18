@@ -59,10 +59,10 @@ source ./credentials.sh
 Make sure Terraform is properly installed on your system see [Terraform Installation Instructions](https://ibm.github.io/cloud-enterprise-examples/iac/setup-environment/#install-terraform): 
 
 Install these configurations using the standard Terraform process:
-- From a command line, change directory to the configuration's directory
-- Modify the `terraform.tfvars` file
-- Run `terraform init` to initialize Terraform
-- Run `terraform apply` to install the configuration
+1. From a command line, change to the configuration's directory
+2. Modify the `terraform.tfvars` file
+3. Run `terraform init` to initialize Terraform
+4. Run `terraform apply` to install the configuration
 
 ## Steps to set up an account
 
