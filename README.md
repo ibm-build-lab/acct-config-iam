@@ -26,21 +26,22 @@ ibmcloud iam api-key-create TerraformKey -d "API Key for Terraform" --file ~/.ib
 
 export IC_API_KEY=$(grep '"apikey":' ~/.ibm_api_key.json | sed 's/.*: "\(.*\)".*/\1/')
 ```
-If you updated credentials.sh.template, rename it to credentials.sh and execute:
-```
-source ./credentials.sh
-```
+
 ### 2. Create an IBM Cloud Classic Infrastructure API Key
 refer to [Managing classic infrastructure API keys](https://cloud.ibm.com/docs/account?topic=account-classic_keys). Ensure you create the key for the account you are setting up. 
 
 ### 3. Set environment variables
-Export these variables or update the credentials.sh.template file to include
+
+Either export these variables or update the credentials.sh.template file to include
 ```
 export IAAS_CLASSIC_USERNAME="< Your IBM Cloud Username/Email here >"
 export IAAS_CLASSIC_API_KEY="< Your IBM Cloud Classic API Key here >"
 export IC_API_KEY="< IBM Cloud API Key >"
 ```
-
+If you updated credentials.sh.template, rename it to credentials.sh and execute:
+```
+source ./credentials.sh
+```
 ## Run from a schematics workspace
 1. Create a *schematics* workspace on your local cloud account
 2. List this [git repo path](https://github.com/ibm-hcbt/acct-config-iam) under "GitHub, GitLab or Bitbucket repository URL"
