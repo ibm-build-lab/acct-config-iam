@@ -14,34 +14,7 @@ This repository contains a collection of Terraform configurations for configurin
 | [rgroups](https://github.com/ibm-pett/acct-config-iam/tree/master/randagroups/rgroups) | Create a resource group for an environment. |
 | [agroups](https://github.com/ibm-pett/acct-config-iam/tree/master/randagroups/agroups) | Create the access groups to use a resource group. |
 
-## Set up
 
-### 1. Create an IBM Cloud API Key
-```
-ibmcloud login --sso
-ibmcloud resource groups
-ibmcloud target -g RESOURCE_GROUP_NAME
-
-ibmcloud iam api-key-create TerraformKey -d "API Key for Terraform" --file ~/.ibm_api_key.json
-
-export IC_API_KEY=$(grep '"apikey":' ~/.ibm_api_key.json | sed 's/.*: "\(.*\)".*/\1/')
-```
-
-### 2. Create an IBM Cloud Classic Infrastructure API Key
-refer to [Managing classic infrastructure API keys](https://cloud.ibm.com/docs/account?topic=account-classic_keys). Ensure you create the key for the account you are setting up. 
-
-### 3. Set environment variables
-
-Either export these variables or update the credentials.sh.template file to include
-```
-export IAAS_CLASSIC_USERNAME="< Your IBM Cloud Username/Email here >"
-export IAAS_CLASSIC_API_KEY="< Your IBM Cloud Classic API Key here >"
-export IC_API_KEY="< IBM Cloud API Key >"
-```
-If you updated credentials.sh.template, rename it to credentials.sh and execute:
-```
-source ./credentials.sh
-```
 ## Run from a schematics workspace
 1. Create a *schematics* workspace on your local cloud account
 2. List this [git repo path](https://github.com/ibm-hcbt/acct-config-iam) under "GitHub, GitLab or Bitbucket repository URL"
@@ -56,13 +29,39 @@ source ./credentials.sh
 
 ## Run from local Terraform client
 
-Make sure Terraform is properly installed on your system see [Terraform Installation Instructions](https://ibm.github.io/cloud-enterprise-examples/iac/setup-environment/#install-terraform): 
+#### 1. Make sure Terraform is properly installed on your system see [Terraform Installation Instructions](https://ibm.github.io/cloud-enterprise-examples/iac/setup-environment/#install-terraform): 
 
-Install these configurations using the standard Terraform process:
-1. From a command line, change to the configuration's directory
-2. Modify the `terraform.tfvars` file
-3. Run `terraform init` to initialize Terraform
-4. Run `terraform apply` to install the configuration
+#### 2. Create an IBM Cloud API Key
+```
+ibmcloud login --sso
+ibmcloud resource groups
+ibmcloud target -g RESOURCE_GROUP_NAME
+
+ibmcloud iam api-key-create TerraformKey -d "API Key for Terraform" --file ~/.ibm_api_key.json
+
+export IC_API_KEY=$(grep '"apikey":' ~/.ibm_api_key.json | sed 's/.*: "\(.*\)".*/\1/')
+```
+#### 3. Create an IBM Cloud Classic Infrastructure API Key
+refer to [Managing classic infrastructure API keys](https://cloud.ibm.com/docs/account?topic=account-classic_keys). Ensure you create the key for the account you are setting up. 
+
+#### 4. Set environment variables
+
+Either export these variables or update the credentials.sh.template file to include
+```
+export IAAS_CLASSIC_USERNAME="< Your IBM Cloud Username/Email here >"
+export IAAS_CLASSIC_API_KEY="< Your IBM Cloud Classic API Key here >"
+export IC_API_KEY="< IBM Cloud API Key >"
+```
+If you updated credentials.sh.template, rename it to credentials.sh and execute:
+```
+source ./credentials.sh
+```
+
+#### 5. Install these configurations using the standard Terraform process:
+- From a command line, change to the configuration's directory
+- Modify the `terraform.tfvars` file
+- Run `terraform init` to initialize Terraform
+- Run `terraform apply` to install the configuration
 
 ## Steps to set up an account
 
