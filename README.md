@@ -83,18 +83,19 @@ Install these configurations using the standard Terraform process:
 6. Manual access groups need also need to be created with the following 
 
     Access Group: **SUPPORT-EDITOR**
-        - Policy Details: To be able to create support tickets
-        - Service: **Support Center**
-        - Platform Access: **Editor**
+    - Policy Details: To be able to create support tickets
+    - Service: **Support Center**
+    - Platform Access: **Editor**
         
     Access Group: LICENSE-ADMIN
-        - Policy Details: To access License and Entitlement
-        - Service: **License and Entitlement**
-        - Platform Access: **Editor**
+    - Policy Details: To access License and Entitlement
+    - Service: **License and Entitlement**
+    - Platform Access: **Editor**
         
 7. May also need to give this access to specific users:
+
     Classic Infrastructure: Devices
-        - Policy Details:  This is permission for Classic Infrastructure to open SoftLayer tickets
-        - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
+    - Policy Details:  This is permission for Classic Infrastructure to open SoftLayer tickets
+    - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
         
 The account is now configured.
