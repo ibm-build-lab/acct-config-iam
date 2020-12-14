@@ -70,11 +70,12 @@ source ./credentials.sh
 2. Create the access group for Account Managers and users (@Ann-Umberhocker, Dave Taylor)
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `Default` resource group.
 3. Create an environment (resource group and access group) for Schematics workspaces 
-    - Run the scripts in `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups` either using Schematics or local Terraform client. If using schematics, create a new schematics workspace in the `Default` resource group.
+    - If using schematics, create a new schematics workspace in the `Default` resource group.
     ![schematics-workspace](./images/create-schematics.png)
+    - Save these settings for the workspace
     ![schematics-workspace](./images/schematics-workspace-settings.png)
     - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER`
-    ![schematics-workspace](./images/schematics-workspace.png)
+    ![schematics-workspace](./images/schematics-settings.png)
 4. Create an environment (resource group and access group) for Cloud Pak sandboxes
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `schematics` resource group.
     - Name the resource group `cloud-pak-sandbox` and the access groups `CLOUD-PAK-SANDBOX-ADMIN`, and `CLOUD-PAK-SANDBOX-USER`
