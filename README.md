@@ -93,11 +93,13 @@ source ./credentials.sh
 
     Access Group: **SUPPORT-EDITOR**
     - Policy Details: To be able to create support tickets
+    - Select **Account Management**
     - Service: **Support Center**
     - Platform Access: **Editor**
         
     Access Group: **LICENSE-ADMIN**
     - Policy Details: To access License and Entitlement
+    - Select **Account Management**
     - Service: **License and Entitlement**
     - Platform Access: **Editor**
         
