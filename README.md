@@ -76,6 +76,8 @@ source ./credentials.sh
     ![schematics-workspace](./images/schematics-workspace-settings.png)
     - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
     ![schematics-workspace](./images/schematics-settings.png)
+    - Click "Save Changes" a couple times
+    - Select "Generate Plan" and "Apply Plan"
 4. Create an environment (resource group and access group) for Cloud Pak sandboxes
     - Using schematics, create a new workspace in the `schematics` resource group.
     ![cloud-pak-sb-workspace](./images/create-cloud-pak-sb.png)
@@ -84,6 +86,8 @@ source ./credentials.sh
     - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
     ![cloud-pak-sb-settings](./images/cloud-pak-sb-settings.png)
     - Name the resource group `cloud-pak-sandbox` and the access groups `CLOUD-PAK-SANDBOX-ADMIN`, and `CLOUD-PAK-SANDBOX-USER`
+    - Click "Save Changes" a couple times
+    - Select "Generate Plan" and "Apply Plan"
 5. Add users to the access groups
     - A user who will run the script to create a Cloud Pak sandbox needs to belong to both `SCHEMATICS-ADMIN` (to run the workspace in `schematics`) and to `CLOUD-PAK-SANDBOX-ADMIN` (so that the script can install the sandbox in `cloud-pak-sandbox`)
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
