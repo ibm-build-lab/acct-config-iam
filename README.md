@@ -17,6 +17,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 ## Run from a schematics workspace
 1. Create a *schematics* workspace on your local cloud account
+![schematics-workspace](./images/schematics-workspace.png)
 2. List this [git repo path](https://github.com/ibm-hcbt/acct-config-iam) under "GitHub, GitLab or Bitbucket repository URL"
 3. Leave git access token blank since this is a public repo
 4. Change terraform version to 0.12
