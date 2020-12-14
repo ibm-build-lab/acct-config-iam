@@ -74,10 +74,15 @@ source ./credentials.sh
     ![schematics-workspace](./images/create-schematics.png)
     - Save these settings for the workspace
     ![schematics-workspace](./images/schematics-workspace-settings.png)
-    - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER`
+    - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
     ![schematics-workspace](./images/schematics-settings.png)
 4. Create an environment (resource group and access group) for Cloud Pak sandboxes
-    - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/randagroups` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `schematics` resource group.
+    - Using schematics, create a new workspace in the `schematics` resource group.
+    ![cloud-pak-sb-workspace](./images/create-cloud-pak-sb.png)
+    - Save these settings for the workspace
+    ![cloud-pak-sb-workspace-settings](./images/cloud-pak-sb-workspace-settings.png)
+    - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
+    ![cloud-pak-sb-settings](./images/cloud-pak-sb-settings.png)
     - Name the resource group `cloud-pak-sandbox` and the access groups `CLOUD-PAK-SANDBOX-ADMIN`, and `CLOUD-PAK-SANDBOX-USER`
 5. Add users to the access groups
     - A user who will run the script to create a Cloud Pak sandbox needs to belong to both `SCHEMATICS-ADMIN` (to run the workspace in `schematics`) and to `CLOUD-PAK-SANDBOX-ADMIN` (so that the script can install the sandbox in `cloud-pak-sandbox`)
