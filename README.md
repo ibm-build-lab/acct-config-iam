@@ -83,9 +83,8 @@ source ./credentials.sh
     ![cloud-pak-sb-workspace](./images/create-cloud-pak-sb.png)
     - Save these settings for the workspace
     ![cloud-pak-sb-workspace-settings](./images/cloud-pak-sb-workspace-settings.png)
-    - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
-    ![cloud-pak-sb-settings](./images/cloud-pak-sb-settings.png)
     - Name the resource group `cloud-pak-sandbox` and the access groups `CLOUD-PAK-SANDBOX-ADMIN`, and `CLOUD-PAK-SANDBOX-USER`
+    ![cloud-pak-sb-settings](./images/cloud-pak-sb-settings.png)
     - Click "Save Changes" a couple times
     - Select "Generate Plan" and "Apply Plan"
 5. Add users to the access groups
