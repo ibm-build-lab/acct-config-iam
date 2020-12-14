@@ -17,11 +17,13 @@ This repository contains a collection of Terraform configurations for configurin
 
 ## Run from a schematics workspace
 1. Create a *schematics* workspace on your local cloud account
-![schematics-workspace](./images/schematics-workspace.png)
+![schematics-workspace](./images/create-schematics.png)
 2. List this [git repo path](https://github.com/ibm-hcbt/acct-config-iam) under "GitHub, GitLab or Bitbucket repository URL"
 3. Leave git access token blank since this is a public repo
 4. Change terraform version to 0.12
+![schematics-workspace](./images/schematics-workspace-settings.png)
 5. Enter resource group (cloud-pak-sandbox) and access group names (CLOUD-PAK-SANDBOX-ADMIN, CLOUD-PAK-SANDBOX-USER).
+![schematics-workspace](./images/schematics-settings.png)
 6. Click "Save Changes" a couple times
 7. Select "Generate Plan" option at top right of page, when that finishes
 8. Select "Apply Plan" option at top right of page
