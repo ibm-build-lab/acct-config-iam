@@ -115,7 +115,7 @@ source ./credentials.sh
     - Policy Details:  This is permission for Classic Infrastructure to open SoftLayer tickets
     - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
     
-8. To configure Iaas permisions so that Kubernetes service in IAM can work it IaaS
+8. To configure IaaS permisions so that Kubernetes service in IAM can work it IaaS
     ```
     ibmcloud target -g automation-foundation
     ibmcloud ks api-key reset --region us-east
