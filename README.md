@@ -71,7 +71,7 @@ source ./credentials.sh
 2. Create the access group for Account Managers and users (@Ann-Umberhocker, Dave Taylor)
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `Default` resource group.
     
-3, Account admin needs to create a Classic Infrastructure Key:
+3. Account admin needs to create a Classic Infrastructure Key:
     ```
         ibmcloud login -sso
         ibmcloud target -g <resource-group>
