@@ -67,6 +67,14 @@ source ./credentials.sh
 ## Steps to set up an account
 
 1. Account is created (Bob)
+    - Account admin needs to create a Classic Infrastructure Key:
+    ```
+        ibmcloud login -sso
+        ibmcloud target -g <resource-group>
+        ibmcloud ks api-key reset --region <region>
+    ```
+    - Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
+
 2. Create the access group for Account Managers and users (@Ann-Umberhocker, Dave Taylor)
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `Default` resource group.
 3. Create an environment (resource group and access group) for Schematics workspaces 
