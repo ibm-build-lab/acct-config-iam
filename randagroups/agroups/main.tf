@@ -101,3 +101,12 @@ resource "ibm_iam_access_group_policy" "users_cloudant_policy" {
     resource_group_id = var.resource_group_id
   }
 }
+
+resource "ibm_iam_access_group_policy" "users_cloud_object_storage_policy" {
+  access_group_id = ibm_iam_access_group.users_access_group.id
+  roles           = ["Administrator", "Manager"]
+  resources {
+    service = "cloud-object-storage"
+    resource_group_id = var.resource_group_id
+  }
+}
