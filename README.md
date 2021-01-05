@@ -131,4 +131,12 @@ source ./credentials.sh
     ibmcloud ks api-key reset --region us-east
     ibmcloud ks api-key reset --region us-south
     ```
+    
+    Also need to create an API key for Kubernetes.  See https://cloud.ibm.com/docs/containers?topic=containers-users#api_key_most_cases
+    ```
+    ibmcloud login
+    ibmcloud target -g <resource_group_name>
+    ibmcloud ks api-key reset --region <region>
+    ibmcloud ks api-key info --cluster <cluster_name_or_ID>
+    ```
 The account is now configured.
