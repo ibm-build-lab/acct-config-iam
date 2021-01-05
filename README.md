@@ -125,11 +125,13 @@ source ./credentials.sh
     - Policy Details:  This is permission for Classic Infrastructure to open SoftLayer tickets
     - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
     
-8. To configure IaaS permisions so that Kubernetes service in IAM can work it IaaS
+8. To configure IaaS permisions so that Kubernetes service in IAM can work
 
     Set Infrastructure access
     ![classic-infra-settings](./images/classic-infra-settings.png)
     
+    Create an API key for Kubernetes. See https://cloud.ibm.com/docs/containers?topic=containers-users#api_key_most_cases
+
     ```
     ibmcloud target -g <resource_group_name>
     ibmcloud ks api-key reset --region us-east
@@ -139,6 +141,5 @@ source ./credentials.sh
     ```
     ibmcloud ks api-key info --cluster <cluster_name_or_ID>
     ```
-    See https://cloud.ibm.com/docs/containers?topic=containers-users#api_key_most_cases
     
 The account is now configured.
