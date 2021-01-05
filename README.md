@@ -126,10 +126,17 @@ source ./credentials.sh
     - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
     
 8. To configure IaaS permisions so that Kubernetes service in IAM can work it IaaS
+
+    Set Infrastructure access
+    ![classic-infra-settings](./images/classic-infra-settings.png)
+    
     ```
     ibmcloud target -g <resource_group_name>
     ibmcloud ks api-key reset --region us-east
     ibmcloud ks api-key reset --region us-south
+    ```
+    To see status of api key for a cluster:
+    ```
     ibmcloud ks api-key info --cluster <cluster_name_or_ID>
     ```
     See https://cloud.ibm.com/docs/containers?topic=containers-users#api_key_most_cases
