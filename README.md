@@ -78,6 +78,14 @@ source ./credentials.sh
         ibmcloud ks api-key reset --region <region>
     ```
     Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
+    
+    Set Infrastructure access
+    ![classic-infra-settings](./images/classic-infra-settings.png)
+    
+    To see status of api key for a cluster:
+    ```
+    ibmcloud ks api-key info --cluster <cluster_name_or_ID>
+    ```
 
 3. Create an environment (resource group and access group) for Schematics workspaces 
     - If using schematics, create a new schematics workspace in the `Default` resource group.
@@ -129,17 +137,5 @@ source ./credentials.sh
 
     Set Infrastructure access
     ![classic-infra-settings](./images/classic-infra-settings.png)
-    
-    Create an API key for Kubernetes. See https://cloud.ibm.com/docs/containers?topic=containers-users#api_key_most_cases
-
-    ```
-    ibmcloud target -g <resource_group_name>
-    ibmcloud ks api-key reset --region us-east
-    ibmcloud ks api-key reset --region us-south
-    ```
-    To see status of api key for a cluster:
-    ```
-    ibmcloud ks api-key info --cluster <cluster_name_or_ID>
-    ```
     
 The account is now configured.
