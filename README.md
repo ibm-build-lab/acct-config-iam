@@ -66,9 +66,9 @@ source ./credentials.sh
 
 ## Steps to set up an account
 
-1. Account is created (Bob)
+1. Account is created
 
-2. Create the access group for Account Managers and users (@Ann-Umberhocker, Dave Taylor)
+2. Create the access group for Account Managers and users
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `Default` resource group.
     
 3. Account admin needs to create a Classic Infrastructure Key:
@@ -84,7 +84,7 @@ source ./credentials.sh
     ![schematics-workspace](./images/create-schematics.png)
     - Save these settings for the workspace
     ![schematics-workspace](./images/schematics-workspace-settings.png)
-    - Name the resoure group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
+    - Name the resource group `schematics` and the access groups `SCHEMATICS-ADMIN`, and `SCHEMATICS-USER` under variables section
     ![schematics-workspace](./images/schematics-settings.png)
     - Click "Save Changes" a couple times
     - Select "Generate Plan" and "Apply Plan"
