@@ -70,22 +70,6 @@ source ./credentials.sh
 
 2. Create the access group for Account Managers and users
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `Default` resource group.
-    
-3. Account admin needs to create a Classic Infrastructure Key:
-    ```
-        ibmcloud login -sso
-        ibmcloud target -g <resource-group>
-        ibmcloud ks api-key reset --region <region>
-    ```
-    Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
-    
-    Set Infrastructure access
-    ![classic-infra-settings](./images/classic-infra-settings.png)
-    
-    To see status of api key for a cluster:
-    ```
-    ibmcloud ks api-key info --cluster <cluster_name_or_ID>
-    ```
 
 3. Create an environment (resource group and access group) for Schematics workspaces 
     - If using schematics, create a new schematics workspace in the `Default` resource group.
@@ -105,7 +89,6 @@ source ./credentials.sh
     ![cloud-pak-sb-settings](./images/cloud-pak-sb-settings.png)
     - Click "Save Changes" a couple times
     - Select "Generate Plan" and "Apply Plan"
-
     
 6. Manual access groups need also need to be created with the following 
 
@@ -121,8 +104,27 @@ source ./credentials.sh
     - Service: **License and Entitlement**
     - Platform Access: **Editor**
         
+8. Add IaaS permisions for admin so that Kubernetes service in IAM can work
 
-5. Add users to the access groups
+    Set Infrastructure access
+    ![classic-infra-settings](./images/classic-infra-settings.png)
+    
+3. Admin that has Classic Infrastructure permissions needs to create a Classic Infrastructure Key:
+    ```
+        ibmcloud login -sso
+        ibmcloud target -g <resource-group>
+        ibmcloud ks api-key reset --region <region>
+    ```
+    Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
+    
+    Set Infrastructure access
+    ![classic-infra-settings](./images/classic-infra-settings.png)
+    
+    To see status of api key for a cluster:
+    ```
+    ibmcloud ks api-key info --cluster <cluster_name_or_ID>
+    ```
+ 5. Add users to the access groups
     - A user who will run the script to create a Cloud Pak sandbox needs to belong to both `SCHEMATICS-ADMIN` (to run the workspace in `schematics`) and to `CLOUD-PAK-SANDBOX-ADMIN` (so that the script can install the sandbox in `cloud-pak-sandbox`)
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
     - A user who uses a sandbox once it's installed needs to belong to `CLOUD-PAK-SANDBOX-USER`
@@ -133,9 +135,7 @@ source ./credentials.sh
     - Policy Details:  This is permission for Classic Infrastructure to open SoftLayer tickets
     - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
     
-8. To configure IaaS permisions so that Kubernetes service in IAM can work
-
-    Set Infrastructure access
+    Add IaaS permisions for admin so that Kubernetes service in IAM can work
     ![classic-infra-settings](./images/classic-infra-settings.png)
     
 The account is now configured.
