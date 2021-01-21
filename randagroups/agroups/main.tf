@@ -120,7 +120,7 @@ resource "ibm_iam_access_group_policy" "users_cloud_object_storage_policy" {
 }
 
 resource "ibm_iam_access_group_policy" "users_support_policy" {
-  access_group_id = ibm_iam_access_group.admins_access_group.id
+  access_group_id = ibm_iam_access_group.users_access_group.id
   roles =  ["Editor"]
   resources  {
     service = "support"
