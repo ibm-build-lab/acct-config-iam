@@ -89,27 +89,13 @@ source ./credentials.sh
     ![cloud-pak-sb-settings](./images/cloud-pak-sb-settings.png)
     - Click "Save Changes" a couple times
     - Select "Generate Plan" and "Apply Plan"
-    
-6. Manual access groups need also need to be created with the following 
-
-    Access Group: **SUPPORT-EDITOR**
-    - Policy Details: To be able to create support tickets
-    - Select **Account Management**
-    - Service: **Support Center**
-    - Platform Access: **Editor**
-        
-    Access Group: **LICENSE-ADMIN**
-    - Policy Details: To access License and Entitlement
-    - Select **Account Management**
-    - Service: **License and Entitlement**
-    - Platform Access: **Editor**
         
 8. Add IaaS permisions for admin so that Kubernetes service in IAM can work
 
     Set Infrastructure access
     ![classic-infra-settings](./images/classic-infra-settings.png)
     
-3. Admin that has Classic Infrastructure permissions needs to create a Classic Infrastructure Key:
+3. Admin that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
     ```
         ibmcloud login -sso
         ibmcloud target -g <resource-group>
