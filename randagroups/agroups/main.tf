@@ -41,6 +41,14 @@ resource "ibm_iam_access_group_policy" "admins_resource_group_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admins_registry_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles =  ["Editor"]
+  resources  {
+    service = "entitlement"
+  }
+}
+
 /*
  * create USER access group
  */
@@ -108,5 +116,13 @@ resource "ibm_iam_access_group_policy" "users_cloud_object_storage_policy" {
   resources {
     service = "cloud-object-storage"
     resource_group_id = var.resource_group_id
+  }
+}
+
+resource "ibm_iam_access_group_policy" "admins_registry_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles =  ["Editor"]
+  resources  {
+    service = "support"
   }
 }
