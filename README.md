@@ -99,6 +99,7 @@ source ./credentials.sh
     ```
         ibmcloud login -sso
         ibmcloud target -g <resource-group>
+        ibmcloud regions
         ibmcloud ks api-key reset --region <region>
     ```
     Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
