@@ -125,4 +125,8 @@ source ./credentials.sh
     Add IaaS permisions for admin so that Kubernetes service in IAM can work
     ![classic-infra-settings](./images/classic-infra-settings.png)
     
+8. Optional: enabling VRF on the account
+
+    ![enable-vrf](./images/enablevrf.png)
+    
 The account is now configured.
