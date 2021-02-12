@@ -127,6 +127,6 @@ source ./credentials.sh
     
 8. Optional: enabling VRF on the account
 
-    ![enable-vrf](./images/enablevrf.png)
+    ![enable-vrf](./images/enable-vrf.png)
     
 The account is now configured.
