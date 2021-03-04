@@ -95,7 +95,11 @@ source ./credentials.sh
     Set Infrastructure access
     ![classic-infra-settings](./images/classic-infra-settings.png)
     
-3. Admin that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
+3. Set Infrastructure access
+    ![classic-infra-settings](./images/classic-infra-settings.png)
+    ![classic-devices](./images/devices.png)
+    
+    Admin that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
     ```
         ibmcloud login -sso
         ibmcloud target -g <resource-group>
@@ -104,8 +108,6 @@ source ./credentials.sh
     ```
     Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
     
-    Set Infrastructure access
-    ![classic-infra-settings](./images/classic-infra-settings.png)
     
     To see status of api key for a cluster:
     ```
