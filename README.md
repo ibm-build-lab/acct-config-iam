@@ -94,10 +94,7 @@ source ./credentials.sh
 
     Set Infrastructure access
     ![classic-infra-settings](./images/classic-infra-settings.png)
-    
-3. Set Infrastructure access
-    ![classic-infra-settings](./images/classic-infra-settings.png)
-    ![classic-devices](./images/devices.png)
+    ![classic-devices-settings](./images/classic-devices-settings.png)
     
     Admin that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
     ```
