@@ -24,3 +24,9 @@ Install these configurations using the standard Terraform process:
 - Modify its `terraform.tfvars` file
 - Run `terraform init` to initialize Terraform
 - Run `terraform apply` to install the configuration
+
+## References
+
+[Account Services API Documentation](https://cloud.ibm.com/docs/account?topic=account-account-services#api-acct-mgmt)
+
+[IBM Cloud Terraform Provider Resources](https://cloud.ibm.com/docs/terraform?topic=terraform-index-of-ibm-cloud-provider-plug-in-for-terraform-resources-and-data-sources)

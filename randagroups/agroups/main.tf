@@ -49,6 +49,22 @@ resource "ibm_iam_access_group_policy" "admins_entitlement_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admins_billing_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles =  ["Viewer"]
+  resources  {
+    service = "billing"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "admins_support_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles =  ["Viewer","Editor"]
+  resources  {
+    service = "support"
+  }
+}
+
 /*
  * create USER access group
  */
