@@ -118,9 +118,6 @@ source ./credentials.sh
 7. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
-   
-8. Add IaaS permisions for admin so that Kubernetes service in IAM can work
-    ![classic-infra-settings](./images/classic-infra-settings.png)
     
 8. Optional: enabling VRF on the account
 
