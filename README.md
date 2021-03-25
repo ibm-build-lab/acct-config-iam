@@ -116,8 +116,17 @@ source ./credentials.sh
     - A user who uses a sandbox once it's installed needs to belong to `CLOUD-PAK-SANDBOX-USER`
         
 7. Give support ticket access to ADMIN users:
-
+    
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
+    
+    If those access groups aren't available, try these commands (from https://cloud.ibm.com/docs/containers?topic=containers-access_reference#infra): 
+    ```
+        ibmcloud sl user list
+        ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
+        ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
+        ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
+    ```
+    NOTE: either account owner needs to do this or parent needs to have these permissions already.
     
 8. Optional: enabling VRF on the account
 
