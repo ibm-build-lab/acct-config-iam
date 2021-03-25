@@ -115,13 +115,11 @@ source ./credentials.sh
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
     - A user who uses a sandbox once it's installed needs to belong to `CLOUD-PAK-SANDBOX-USER`
         
-7. May also need to give this access to specific users:
+7. Give support ticket access to ADMIN users:
 
-    Classic Infrastructure: Devices
-    - Policy Details:  This is permission for Classic Infrastructure to open SoftLayer tickets
-    - Access Policies: **Add cases and view orders**, **Edit cases**, and **View cases**.
-    
-    Add IaaS permisions for admin so that Kubernetes service in IAM can work
+    Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
+   
+8. Add IaaS permisions for admin so that Kubernetes service in IAM can work
     ![classic-infra-settings](./images/classic-infra-settings.png)
     
 8. Optional: enabling VRF on the account
