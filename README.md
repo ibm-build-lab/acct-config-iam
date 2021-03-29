@@ -134,7 +134,7 @@ source ./credentials.sh
     
 9. Assign VPC permissions (Optional)
 
-    Set the following permissions for `VPC Infrastructure Services` in the appropriate `-ADMIN` resource group:
+    Set the following permissions for `VPC Infrastructure Services` in the appropriate `-ADMIN` access group:
     
     ![VPC-permissoins](./images/VPC-permissions.png)
     
