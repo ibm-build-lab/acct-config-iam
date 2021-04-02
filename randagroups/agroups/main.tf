@@ -65,6 +65,16 @@ resource "ibm_iam_access_group_policy" "admins_support_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admins_is_vpc_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles           = ["Editor"]
+  resources {
+    service = "is"
+    resource_type = "vpc"
+    resource_group_id = var.resource_group_id
+  }
+}
+
 /*
  * create USER access group
  */
