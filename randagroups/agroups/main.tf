@@ -115,6 +115,26 @@ resource "ibm_iam_access_group_policy" "admins_is_volume_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admins_is_floating_ip_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles           = ["Editor"]
+  resources {
+    service = "is"
+    resource_type = "floating_ip"
+    resource_group_id = var.default_resource_group_id
+  }
+}
+
+resource "ibm_iam_access_group_policy" "admins_is_volume_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles           = ["Editor"]
+  resources {
+    service = "is"
+    resource_type = "volume"
+    resource_group_id = var.default_resource_group_id
+  }
+}
+
 /*
  * create USER access group
  */
