@@ -115,7 +115,7 @@ resource "ibm_iam_access_group_policy" "admins_is_volume_policy" {
   }
 }
 
-resource "ibm_iam_access_group_policy" "admins_is_floating_ip_policy" {
+resource "ibm_iam_access_group_policy" "admins_is_floating_ip_default_rg_policy" {
   access_group_id = ibm_iam_access_group.admins_access_group.id
   roles           = ["Editor"]
   resources {
@@ -125,7 +125,7 @@ resource "ibm_iam_access_group_policy" "admins_is_floating_ip_policy" {
   }
 }
 
-resource "ibm_iam_access_group_policy" "admins_is_volume_policy" {
+resource "ibm_iam_access_group_policy" "admins_is_volume_default_rg_policy" {
   access_group_id = ibm_iam_access_group.admins_access_group.id
   roles           = ["Editor"]
   resources {
