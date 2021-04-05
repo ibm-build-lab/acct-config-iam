@@ -12,9 +12,10 @@ module "resource-groups" {
 module "access-groups" {
   source = "./agroups"
 
-  resource_group_name      = module.resource-groups.resource_group_name
-  resource_group_id        = module.resource-groups.resource_group_id
-  admins_access_group_name = var.admins_access_group_name
-  users_access_group_name  = var.users_access_group_name
+  resource_group_name       = module.resource-groups.resource_group_name
+  resource_group_id         = module.resource-groups.resource_group_id
+  default_resource_group_id = module.resource-groups.default_resource_group_id
+  admins_access_group_name  = var.admins_access_group_name
+  users_access_group_name   = var.users_access_group_name
 }
 
