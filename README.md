@@ -128,6 +128,8 @@ source ./credentials.sh
     ```
     NOTE: either account owner needs to do this or parent needs to have these permissions already.
     
+    In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
+    
 8. Enable VRF on the account (Optional)
 
     ![enable-vrf](./images/enable-vrf.png)
@@ -140,4 +142,4 @@ source ./credentials.sh
     
     See [VPC IAM](https://cloud.ibm.com/docs/vpc?topic=vpc-iam-getting-started) for more information.
     
-The account is now configured.
+
