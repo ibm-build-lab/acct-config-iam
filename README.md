@@ -130,7 +130,7 @@ source ./credentials.sh
     
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
     
-8. Enable VRF on the account (Optional)
+8. Enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account (Optional)
 
     ![enable-vrf](./images/enable-vrf.png)
     
