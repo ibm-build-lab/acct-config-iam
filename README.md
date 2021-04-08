@@ -134,12 +134,5 @@ source ./credentials.sh
 
     ![enable-vrf](./images/enable-vrf.png)
     
-9. Assign VPC permissions (Optional)
-
-    Set the following permissions for `VPC Infrastructure Services` in the appropriate `-ADMIN` access group:
-    
-    ![VPC-permissoins](./images/VPC-permissions.png)
-    
-    See [VPC IAM](https://cloud.ibm.com/docs/vpc?topic=vpc-iam-getting-started) for more information.
     
 
