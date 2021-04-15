@@ -1,0 +1,81 @@
+{
+  "id": "us-east.workspace.test-IAM-setup.bd8b800a",
+  "name": "test IAM setup",
+  "crn": "crn:v1:bluemix:public:schematics:us-south:a/db138d65ce6a4c7889fd6b359053a0a6:142c2102-83d5-4988-b1c1-5441cb3cd0f4:workspace:us-east.workspace.test-IAM-setup.bd8b800a",
+  "type": [
+    "terraform_v0.12"
+  ],
+  "description": "IBM Cloud Schematics Workspace to create test rg and ag",
+  "resource_group": "Default",
+  "location": "us-east",
+  "tags": [
+    "owner:$USER"
+  ],
+  "created_at": "2021-04-15T21:35:22.846517085Z",
+  "created_by": "Ann.Umberhocker@ibm.com",
+  "status": "DRAFT",
+  "failure_reason": "",
+  "workspace_status_msg": {
+    "status_code": "",
+    "status_msg": ""
+  },
+  "workspace_status": {
+    "frozen": false,
+    "locked": false
+  },
+  "template_repo": {
+    "url": "https://github.com/ibm-hcbt/acct-config-iam",
+    "branch": "main",
+    "full_url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/randagroups",
+    "has_uploadedgitrepotar": false
+  },
+  "template_data": [
+    {
+      "id": "randagroups-6d102111-fadd-4b",
+      "folder": "randagroups",
+      "type": "terraform_v0.12",
+      "values_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-east.workspace.test-IAM-setup.bd8b800a/template_data/randagroups-6d102111-fadd-4b/values",
+      "values": "",
+      "variablestore": [
+        {
+          "name": "resource_group_name",
+          "secure": false,
+          "value": "test",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "admins_access_group_name",
+          "secure": false,
+          "value": "TEST-ADMIN",
+          "type": "string",
+          "description": ""
+        },
+        {
+          "name": "users_access_group_name",
+          "secure": false,
+          "value": "TEST-USER",
+          "type": "string",
+          "description": ""
+        }
+      ],
+      "has_githubtoken": false
+    }
+  ],
+  "runtime_data": [
+    {
+      "id": "randagroups-6d102111-fadd-4b",
+      "engine_name": "terraform",
+      "engine_version": "v0.12.30",
+      "state_store_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-east.workspace.test-IAM-setup.bd8b800a/runtime_data/randagroups-6d102111-fadd-4b/state_store",
+      "log_store_url": "https://us.schematics.cloud.ibm.com/v1/workspaces/us-east.workspace.test-IAM-setup.bd8b800a/runtime_data/randagroups-6d102111-fadd-4b/log_store"
+    }
+  ],
+  "shared_data": {
+    "resource_group_id": ""
+  },
+  "applied_shareddata_ids": null,
+  "updated_at": "0001-01-01T00:00:00Z",
+  "last_health_check_at": "0001-01-01T00:00:00Z",
+  "cart_id": ""
+}
