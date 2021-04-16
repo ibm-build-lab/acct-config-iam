@@ -72,7 +72,7 @@ source ./credentials.sh
     - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create and apply a new workspace in the `Default` resource group.
 
     Once run, the ACCT-MGR access group with the following roles will be created:
-    ![acct_mgr](./images/acctmgr_roles.png)
+    ![acct_mgr](./images/accountmgr_roles.png)
 
 3. Create an environment (resource group and access group) for Schematics workspaces 
     - If using schematics, create a new schematics workspace in the `Default` resource group.
@@ -98,7 +98,7 @@ source ./credentials.sh
     - Select "Generate Plan" and "Apply Plan"
         
     Once run, the CLOUD-PAK-SANDBOX-ADMIN access group will be create with the following roles: 
-    ![cloud-pak-sandbox-admin](./images/cloudpaksandboxadmin_roles.png)
+    ![cloud-pak-sandbox-admin](./images/cloudpaksanboxadmin_roles.png)
 
     The CLOUD-PAK-SANDBOX-USER access group will be create with the following roles: 
     ![cloud-pak-sandbox-user](./images/cloudpaksandboxuser_roles.png)
