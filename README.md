@@ -69,7 +69,10 @@ source ./credentials.sh
 1. Account is created
 
 2. Create the access group for Account Managers and users
-    - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create a new workspace in the `Default` resource group.
+    - Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using Schematics or local Terraform client. If using schematics, create and apply a new workspace in the `Default` resource group.
+
+Once run, the ACCT-MGR access group with the following roles will be created:
+![acct_mgr](./images/acctmgr_roles.png)
 
 3. Create an environment (resource group and access group) for Schematics workspaces 
     - If using schematics, create a new schematics workspace in the `Default` resource group.
@@ -80,6 +83,10 @@ source ./credentials.sh
     ![schematics-workspace](./images/schematics-settings.png)
     - Click "Save Changes" a couple times
     - Select "Generate Plan" and "Apply Plan"
+
+Once run, the SCHEMATICS-ADMIN access group will be create with the following roles: 
+![schematics_admin](./images/schematics_admin_roles.png)
+
 4. Create an environment (resource group and access group) for Cloud Pak sandboxes
     - Using schematics, create a new workspace in the `schematics` resource group.
     ![cloud-pak-sb-workspace](./images/create-cloud-pak-sb.png)
@@ -90,6 +97,12 @@ source ./credentials.sh
     - Click "Save Changes" a couple times
     - Select "Generate Plan" and "Apply Plan"
         
+Once run, the CLOUD-PAK-SANDBOX-ADMIN access group will be create with the following roles: 
+![cloud-pak-sandbox-admin](./images/cloudpaksandboxadmin_roles.png)
+
+The CLOUD-PAK-SANDBOX-USER access group will be create with the following roles: 
+![cloud-pak-sandbox-user](./images/cloudpaksandboxuser_roles.png)
+
 8. Add IaaS permisions for admin so that Kubernetes service in IAM can work
 
     Set Infrastructure access
