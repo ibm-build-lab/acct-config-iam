@@ -1,7 +1,7 @@
 echo "Enter resource group name: "
 read RESOURCE_GROUP
 mkdir -p ./logs
-echo "Creating workspace for schematics resource group"
+echo "Creating workspace for resource group"
 ibmcloud schematics workspace new --file ${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
 sleep 60
 echo "Sleeping for 60 seconds"

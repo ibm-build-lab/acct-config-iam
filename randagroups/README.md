@@ -15,6 +15,7 @@ This repository contains a collection of Terraform configurations for configurin
 | resource_group_name | The name for the new resource group |
 | admins_access_group_name | The name for the new administrators access group |
 | users_access_group_name | The name for the new users access group |
+| sat_access_group_name | The name for the new Satellite admin access group |
 
 ## Use
 

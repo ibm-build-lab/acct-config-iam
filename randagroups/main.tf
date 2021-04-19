@@ -17,5 +17,6 @@ module "access-groups" {
   default_resource_group_id = module.resource-groups.default_resource_group_id
   admins_access_group_name  = var.admins_access_group_name
   users_access_group_name   = var.users_access_group_name
+  sat_access_group_name     = var.sat_access_group_name
 }
 

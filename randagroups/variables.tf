@@ -12,6 +12,12 @@ variable "admins_access_group_name" {
 
 variable "users_access_group_name" {
   type        = string
-  description = "Name for the Admins access group."
+  description = "Name for the Users access group."
   default     = "TEST-USER"
+}
+
+variable "sat_access_group_name" {
+  type        = string
+  description = "Name for the Satellite Admins access group."
+  default     = "TEST-SAT-ADMIN"
 }
