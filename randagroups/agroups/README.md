@@ -20,6 +20,7 @@ This repository contains a collection of Terraform configurations for configurin
 ## Use
 
 Install these configurations using the standard Terraform process:
+
 - From a command line, change directory to the configuration's directory
 - Modify its `terraform.tfvars` file
 - Run `terraform init` to initialize Terraform

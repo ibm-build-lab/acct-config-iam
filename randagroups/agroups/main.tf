@@ -212,3 +212,65 @@ resource "ibm_iam_access_group_policy" "users_support_policy" {
     service = "support"
   }
 }
+
+/*
+ * create SAT-ADMIN access group
+ */
+
+resource "ibm_iam_access_group" "sat_access_group" {
+  name = var.sat_access_group_name
+  description = join(" ", ["Satellite Admininstrators in the", var.resource_group_name, "environment"])
+}
+
+resource "ibm_iam_access_group_policy" "sat_service_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Administrator"]
+  resources  {
+    service = "satellite"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_link_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Satellite Link Administrator"]
+  resources  {
+    service = "satellite"
+    resource_type = "link"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_cloud_object_storage_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles           = ["Manager"]
+  resources {
+    service = "cloud-object-storage"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_schematics_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles           = ["Administrator"]
+  resources {
+    service = "schematics"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_cert_mgr_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles           = ["Editor","Manager"]
+  resources {
+    service = "certificate-manager"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_resource_group_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Viewer"]
+  resources  {
+    resource_type = "resource-group"
+    resource = var.resource_group_id
+  }
+}
