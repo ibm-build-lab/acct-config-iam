@@ -65,8 +65,8 @@ resource "ibm_iam_access_group_policy" "admins_support_policy" {
   }
 }
 
-resource "ibm_iam_access_group_policy" "admin_schematics_policy" {
-  access_group_id = ibm_iam_access_group.admin_access_group.id
+resource "ibm_iam_access_group_policy" "admins_schematics_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
   roles           = ["Administrator"]
   resources {
     service = "schematics"
