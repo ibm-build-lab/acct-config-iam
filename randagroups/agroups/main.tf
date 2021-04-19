@@ -65,6 +65,15 @@ resource "ibm_iam_access_group_policy" "admins_support_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admin_schematics_policy" {
+  access_group_id = ibm_iam_access_group.admin_access_group.id
+  roles           = ["Administrator"]
+  resources {
+    service = "schematics"
+    resource_group_id = var.resource_group_id
+  }
+}
+
 resource "ibm_iam_access_group_policy" "admins_is_vpc_policy" {
   access_group_id = ibm_iam_access_group.admins_access_group.id
   roles           = ["Editor"]
@@ -239,38 +248,3 @@ resource "ibm_iam_access_group_policy" "sat_link_policy" {
   }
 }
 
-resource "ibm_iam_access_group_policy" "sat_cloud_object_storage_policy" {
-  access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles           = ["Manager"]
-  resources {
-    service = "cloud-object-storage"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "sat_schematics_policy" {
-  access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles           = ["Administrator"]
-  resources {
-    service = "schematics"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "sat_cert_mgr_policy" {
-  access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles           = ["Editor","Manager"]
-  resources {
-    service = "certificate-manager"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "sat_resource_group_policy" {
-  access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Viewer"]
-  resources  {
-    resource_type = "resource-group"
-    resource = var.resource_group_id
-  }
-}
