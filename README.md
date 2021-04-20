@@ -85,9 +85,8 @@ source ./credentials.sh
 
     ![add-acct-mgrs](./images/add-acct-mgrs.png)
 
-4. Add IaaS permisions for at least one Account Manager so that Kubernetes service in IAM can work
+4. Add IaaS permisions to at least one Account Manager so that Kubernetes service in IAM can work
 
-    Set Infrastructure access
     ![classic-infra-settings](./images/classic-infra-settings.png)
     ![classic-devices-settings](./images/classic-devices-settings.png)
 
