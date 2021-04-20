@@ -81,7 +81,9 @@ source ./credentials.sh
     Once run, the `ACCT-MGR-ADMIN` access group with the following roles will be created:
     ![acct_mgr](./images/accountmgr_roles.png)
 
-3. Add Account Manager Users to account
+3. Add Account Manager Users by assigning to ACCT-MGR-ADMIN access group:
+
+    ![add-acct-mgrs](./images/add-acct-mgrs.png)
 
 4. Add IaaS permisions for at least one Account Manager so that Kubernetes service in IAM can work
 
