@@ -4,9 +4,11 @@
 
 1. Create IBM Cloud Account for partner
 
-2. Create the access group for Account Managers
+2. Create the access group and users for Account Managers
 
-    Run scripts from `https://github.com/ibm-pett/acct-config-iam/tree/main/acctmgrs` either using [Schematics](./README.md#run-from-a-schematics-workspace) or local [Terraform](./README.md#run-from-local-terraform-client) client. If using schematics, create and apply a new workspace in the `Default` resource group.
+    - Uncomment and add list of Account Manager users to this [terraform.tfvars](./acctmgrs/acctmgrgroup/terraform.tfvars) file
+    
+    - Run scripts from `https://github.com/ibm-hcbt/acct-config-iam/tree/main/acctmgrs` either using [Schematics](./README.md#run-from-a-schematics-workspace) or local [Terraform](./README.md#run-from-local-terraform-client) client. If using schematics, create and apply new workspace in the `Default` resource group.
 
     Once run, the `ACCT-MGR-ADMIN` access group with the following roles will be created:
     ![acct_mgr](./images/accountmgr_roles.png)
