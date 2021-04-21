@@ -145,7 +145,7 @@ ibmcloud login -sso
    }
    ```
 
-2. To set up the schematicsresource and access groups, run
+2. To set up the schematics resource and access groups, run
 
    ```bash
    ./setup_account.sh schematics
