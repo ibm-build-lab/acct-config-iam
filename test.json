@@ -33,7 +33,7 @@
           "type": "string"
         },
         {
-          "name": "users_access_group_name",
+          "name": "sat_access_group_name",
           "value": "TEST-SAT-ADMIN",
           "type": "string"
         }
