@@ -74,56 +74,6 @@ resource "ibm_iam_access_group_policy" "admins_schematics_policy" {
   }
 }
 
-resource "ibm_iam_access_group_policy" "admins_is_vpc_policy" {
-  access_group_id = ibm_iam_access_group.admins_access_group.id
-  roles           = ["Editor"]
-  resources {
-    service = "is"
-    resource_type = "vpc"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "admins_is_subnet_policy" {
-  access_group_id = ibm_iam_access_group.admins_access_group.id
-  roles           = ["Editor"]
-  resources {
-    service = "is"
-    resource_type = "subnet"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "admins_is_public_gateway_policy" {
-  access_group_id = ibm_iam_access_group.admins_access_group.id
-  roles           = ["Editor"]
-  resources {
-    service = "is"
-    resource_type = "public_gateway"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "admins_is_floating_ip_policy" {
-  access_group_id = ibm_iam_access_group.admins_access_group.id
-  roles           = ["Editor"]
-  resources {
-    service = "is"
-    resource_type = "floating_ip"
-    resource_group_id = var.resource_group_id
-  }
-}
-
-resource "ibm_iam_access_group_policy" "admins_is_volume_policy" {
-  access_group_id = ibm_iam_access_group.admins_access_group.id
-  roles           = ["Editor"]
-  resources {
-    service = "is"
-    resource_type = "volume"
-    resource_group_id = var.resource_group_id
-  }
-}
-
 resource "ibm_iam_access_group_policy" "admins_is_floating_ip_default_rg_policy" {
   access_group_id = ibm_iam_access_group.admins_access_group.id
   roles           = ["Editor"]
