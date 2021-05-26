@@ -25,64 +25,7 @@ Make sure you are logged in to proper cloud account:
 ```bash
 ibmcloud login -sso
 ```
-
-1. Create a `schematics.json` file with the following:
-
-   ```json
-   {
-     "name": "schematics IAM setup",
-     "type": [
-       "terraform_v0.12"
-     ],
-     "description": "IBM Cloud Schematics Workspace to create schematics rg and ag",
-     "tags": [
-       "owner:$USER"
-     ],
-     "resource_group": "Default",
-     "template_repo": {
-       "url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/randagroups",
-       "branch": "main"
-     },
-     "template_data": [
-       {
-         "folder": ".",
-         "type": "terraform_v0.12",
-         "variablestore": [
-           {
-             "name": "resource_group_name",
-             "value": "schematics",
-             "type": "string"
-           },
-           {
-             "name": "admins_access_group_name",
-             "value": "SCHEMATICS-ADMIN",
-             "type": "string"
-           },
-           {
-             "name": "users_access_group_name",
-             "value": "SCHEMATICS-USER",
-             "type": "string"
-           },
-           {
-             "name": "sat_access_group_name",
-             "value": "SCHEMATICS-SAT-ADMIN",
-             "type": "string"
-           }
-         ]
-       }
-     ]
-   }
-   ```
-
-2. To set up the schematics resource and access groups, run
-
-   ```bash
-   ./setup_account.sh schematics
-   ```
-
-    The `SCHEMATICS-ADMIN`, `SCHEMATICS-USER`, and `SCHEMATICS-SAT-ADMIN` access groups will be created 
-
-3. Create a `cloud-pak-sandbox.json` file with the following:
+1. Create a `cloud-pak-sandbox.json` file with the following:
 
    ```json
    {
@@ -94,7 +37,7 @@ ibmcloud login -sso
      "tags": [
        "owner:$USER"
      ],
-     "resource_group": "schematics",
+     "resource_group": "Default",
      "template_repo": {
        "url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/randagroups",
        "branch": "main"
@@ -130,7 +73,7 @@ ibmcloud login -sso
    }
    ```
 
-4. To set up the cloud-pak-sandbox resource and access groups, run
+2. To set up the cloud-pak-sandbox resource and access groups, run
 
    ```bash
    ./setup_account.sh cloud-pak-sandbox
@@ -138,7 +81,7 @@ ibmcloud login -sso
 
     The `CLOUD-PAK-SANDBOX-ADMIN`, `CLOUD-PAK-SANDBOX-USER`, and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups will be created 
 
-5. The Account Manager that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
+3. The Account Manager that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
 
     ```bash
    ibmcloud login -sso
@@ -155,7 +98,7 @@ ibmcloud login -sso
     ibmcloud ks api-key info --cluster <cluster_name_or_ID>
     ```
 
-6. Add users to the access groups
+4. Add users to the access groups
 
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
 
@@ -163,7 +106,7 @@ ibmcloud login -sso
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `CLOUD-PAK-SANDBOX-SAT-ADMIN`
 
-7. Give support ticket access to ADMIN users:
+5. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
@@ -180,7 +123,7 @@ ibmcloud login -sso
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-8. Enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account (Optional)
+6. Enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account (Optional)
 
     ![enable-vrf](./images/enable-vrf.png)
 
