@@ -1,5 +1,7 @@
 # Steps to set up a Cloud Pak Sandbox account
 
+Clone this repo and cd into acct-config-iam
+
 ## Account Owner Tasks
 
 1. Create IBM Cloud Account for partner
