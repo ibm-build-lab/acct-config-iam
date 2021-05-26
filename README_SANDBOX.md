@@ -97,8 +97,14 @@ ibmcloud login -sso
     ```bash
     ibmcloud ks api-key info --cluster <cluster_name_or_ID>
     ```
+4. Create LogDNA Activity Tracker service
 
-4. Add users to the access groups
+    ```
+    ibmcloud target -g cloud-pak-sandbox
+    ibmcloud resource service-instance-create logging-instance-01 logdnaat lite eu-de
+    ```
+
+5. Add users to the access groups
 
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
 
@@ -106,7 +112,7 @@ ibmcloud login -sso
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `CLOUD-PAK-SANDBOX-SAT-ADMIN`
 
-5. Give support ticket access to ADMIN users:
+6. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
@@ -123,7 +129,7 @@ ibmcloud login -sso
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-6. Enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account (Optional)
+7. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
     ![enable-vrf](./images/enable-vrf.png)
 
