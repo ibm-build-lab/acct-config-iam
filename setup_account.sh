@@ -26,3 +26,5 @@ ibmcloud schematics apply --id $WORKSPACE_ID --force
 echo "Sleeping for 2 minutes"
 sleep 120
 
+ibmcloud target -g cloud-pak-sandbox
+ibmcloud resource service-instance-create logging-instance-01 logdnaat lite eu-de
