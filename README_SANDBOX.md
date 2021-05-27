@@ -103,7 +103,8 @@ ibmcloud login -sso
 
     ```
     ibmcloud target -g cloud-pak-sandbox
-    ibmcloud resource service-instance-create logging-instance-01 logdnaat lite eu-de
+    ibmcloud resource service-instance-create logging-instance-global logdnaat 7-day eu-de
+    ibmcloud resource service-instance-create logging-instance-local logdnaat 7-day <zone>
     ```
 
 5. Add users to the access groups
