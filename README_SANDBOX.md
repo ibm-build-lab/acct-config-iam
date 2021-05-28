@@ -1,4 +1,4 @@
-# Steps to set up a Cloud Pak Sandbox account
+# Steps to set up a Partner Sandbox account
 
 Clone this repo and cd into acct-config-iam
 
