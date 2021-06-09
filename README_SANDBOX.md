@@ -109,6 +109,8 @@ ibmcloud login -sso
 
 5. Add users to the access groups
 
+   External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
+   
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
 
     - A user who just needs cluster admin privileges needs to belong to `CLOUD-PAK-SANDBOX-USER`
