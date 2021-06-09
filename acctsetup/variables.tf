@@ -21,3 +21,9 @@ variable "sat_access_group_name" {
   description = "Name for the Satellite Admins access group."
   default     = "TEST-SAT-ADMIN"
 }
+
+# variable "admin_service_id" {
+#   type        = string
+#   description = "Name of service id to use for API keys"
+#   default     = "admin_acct_id"
+# }

@@ -1,5 +1,4 @@
 provider "ibm" {
-  generation         = 2
   region             = "us-south"
 }
 
@@ -20,3 +19,10 @@ module "access-groups" {
   sat_access_group_name     = var.sat_access_group_name
 }
 
+# module "account" {
+#   source = "./account"
+
+#   resource_group_id         = module.resource-groups.resource_group_id
+#   admin_access_group_id     = module.access-groups.admins_access_group_id
+#   admin_service_id          = var.admin_service_id
+# }

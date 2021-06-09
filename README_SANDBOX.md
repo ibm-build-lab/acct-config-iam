@@ -41,7 +41,7 @@ ibmcloud login -sso
      ],
      "resource_group": "Default",
      "template_repo": {
-       "url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/randagroups",
+       "url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/acctsetup",
        "branch": "main"
      },
      "template_data": [
