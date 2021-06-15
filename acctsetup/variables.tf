@@ -22,8 +22,20 @@ variable "sat_access_group_name" {
   default     = "TEST-SAT-ADMIN"
 }
 
-# variable "admin_service_id" {
-#   type        = string
-#   description = "Name of service id to use for API keys"
-#   default     = "admin_acct_id"
-# }
+variable "service_id_name" {
+  type        = string
+  description = "Name of service id to use for API keys"
+  default     = "admin-acct-id"
+}
+
+variable "region" {
+  type        = string
+  description = "Region to use for activity tracker and API keys"
+  default     = "us-south"
+}
+
+variable "at_plan" {
+  type        = string
+  description = "Activity Tracker plan"
+  default     = "7-day"
+}

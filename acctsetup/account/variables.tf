@@ -1,34 +1,28 @@
-variable "resource_group_name" {
+variable "at_plan" {
   type        = string
-  description = "Name of the environment's resource group."
-  default     = "test"
+  description = "Name for the Admin access group for the environment."
+  default     = "7-day"
+}
+
+variable "region" {
+  type        = string
+  description = "Region for API Key and Activity Tracker"
+  default     = "us-south"
 }
 
 variable "resource_group_id" {
   type        = string
-  description = "ID of the environment's resource group."
+  description = "id for the resource group created"
 }
 
-variable "default_resource_group_id" {
+variable "service_id_name" {
   type        = string
-  description = "ID of the account's default resource group."
+  description = "Name of service id to use for API keys"
+  default     = "partner-sandbox-admin-id"
 }
 
-
-variable "admins_access_group_name" {
+variable "admins_access_group_id" {
   type        = string
-  description = "Name for the Admin access group for the environment."
-  default     = "TEST-ADMIN"
+  description = "Admin access group id"
 }
 
-variable "users_access_group_name" {
-  type        = string
-  description = "Name for the User access group for the environment."
-  default     = "TEST-USER"
-}
-
-variable "sat_access_group_name" {
-  type        = string
-  description = "Name for the Satellite access group for the environment."
-  default     = "TEST-SAT-ADMIN"
-}

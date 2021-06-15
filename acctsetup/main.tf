@@ -1,5 +1,7 @@
+
 provider "ibm" {
-  region             = "us-south"
+  region = "us-south"
+  version = "~> 1.12"
 }
 
 module "resource-groups" {
@@ -19,10 +21,13 @@ module "access-groups" {
   sat_access_group_name     = var.sat_access_group_name
 }
 
-# module "account" {
-#   source = "./account"
+module "account" {
+  source = "./account"
 
-#   resource_group_id         = module.resource-groups.resource_group_id
-#   admin_access_group_id     = module.access-groups.admins_access_group_id
-#   admin_service_id          = var.admin_service_id
-# }
+  at_plan                   = var.at_plan
+  region                    = var.region
+  resource_group_id         = module.resource-groups.resource_group_id
+  admins_access_group_id    = module.access-groups.admins_access_group_id
+  service_id_name           = var.service_id_name
+}
+

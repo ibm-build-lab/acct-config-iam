@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SERVICE_ID=partner-sandbox-admin-id
+
 if [[ $# -eq 0 ]]; then
         echo "Resource group required as argument.  Syntax 'setup_account.sh <resource_group>'" 1>&2
         exit 1
@@ -26,3 +28,10 @@ ibmcloud schematics apply --id $WORKSPACE_ID --force
 echo "Sleeping for 2 minutes"
 sleep 120
 
+ibmcloud target -g $RESOURCE_GROUP
+echo "What is region 'ibmcloud regions' for api key: "
+read REGION
+
+# ibmcloud ks api-key reset --region $REGION
+ibmcloud iam service-api-key-update admin-acct-id-api-key $SERVICE_ID 
+ibmcloud ks credential set classic --infrastructure-api-key KEY --infrastructure-username $SERVICE_ID --region $REGION
