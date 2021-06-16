@@ -4,6 +4,7 @@
 # create service id
 resource "ibm_iam_service_id" "serviceID" { 
   name = var.service_id_name
+  description = "Service ID used assign Classic Infrastructure and cluster creation priviledges"
 }
 
 # Add service id to admin access group
@@ -12,22 +13,11 @@ resource "ibm_iam_access_group_members" "adminaccgroupmem" {
   iam_service_ids = [ibm_iam_service_id.serviceID.id] 
 }
 
-# Give service id infrastructure roles
-# resource "ibm_iam_user_invite" "serviceID" {
-#   users = [ibm_iam_service_id.serviceID.id] 
-#   classic_infra_roles {
-#     permission_set = "superuser"
-#   }
-# }
-
-# resource "ibm_iam_service_policy" "policy" {
-#   iam_service_id = ibm_iam_service_id.serviceID.id
-#   classic_infra_roles {
-#      permission_set = "superuser"
-#   }
-# }
-
-# Not currently supported
+# Creating an API key for service id is not currently supported in IBM provider, so need to do this manually with CLI commands: 
+#
+# ibmcloud iam service-api-key-update partner-sandbox-api-key $SERVICE_ID 
+# ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username $SERVICE_ID --region $REGION
+#
 # resource "ibm_iam_service_api_key" "acc_apiKey" {
 #   name = "serviceID_apikey"
 #   iam_service_id = ibm_iam_service_id.serviceID.iam_id
