@@ -11,6 +11,10 @@ if [[ ! -f "$1.json" ]]; then
     echo "Existance of <resource-group>.json is required.  See test.json example" 1>&2
     exit 1
 fi
+
+echo "What is region 'ibmcloud regions' for api key: "
+read REGION
+
 mkdir -p ./logs
 echo "Creating workspace for resource group"
 ibmcloud schematics workspace new --file ${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
@@ -29,9 +33,7 @@ echo "Sleeping for 2 minutes"
 sleep 120
 
 ibmcloud target -g $RESOURCE_GROUP
-echo "What is region 'ibmcloud regions' for api key: "
-read REGION
 
 # ibmcloud ks api-key reset --region $REGION
-ibmcloud iam service-api-key-update partner-sandbox-api-key $SERVICE_ID 
+ibmcloud iam service-api-key-update partner-sandbox-api-key partner-sandbox-admin-id
 ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username $SERVICE_ID --region $REGION
