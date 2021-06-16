@@ -33,5 +33,5 @@ echo "What is region 'ibmcloud regions' for api key: "
 read REGION
 
 # ibmcloud ks api-key reset --region $REGION
-ibmcloud iam service-api-key-update admin-acct-id-api-key $SERVICE_ID 
-ibmcloud ks credential set classic --infrastructure-api-key KEY --infrastructure-username $SERVICE_ID --region $REGION
+ibmcloud iam service-api-key-update partner-sandbox-api-key $SERVICE_ID 
+ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username $SERVICE_ID --region $REGION
