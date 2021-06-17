@@ -15,6 +15,14 @@ resource "ibm_iam_access_group_policy" "admins_registry_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admins_certmgr_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles =  ["Editor", "Manager"]
+  resources  {
+    service = "cloudcerts"
+  }
+}
+
 resource "ibm_iam_access_group_policy" "admins_kubernetes_policy" {
   access_group_id = ibm_iam_access_group.admins_access_group.id
   roles =  ["Administrator", "Manager"]
@@ -38,6 +46,14 @@ resource "ibm_iam_access_group_policy" "admins_resource_group_policy" {
   resources  {
     resource_type = "resource-group"
     resource = var.resource_group_id
+  }
+}
+
+resource "ibm_iam_access_group_policy" "admins_iam_group_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles =  ["Viewer"]
+  resources  {
+    service = "iam-identity"
   }
 }
 
