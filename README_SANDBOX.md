@@ -27,97 +27,36 @@ Make sure you are logged in to proper cloud account:
 ```bash
 ibmcloud login -sso
 ```
-1. Create a `cloud-pak-sandbox.json` file with the following:
 
-   ```json
-   {
-     "name": "cloud-pak-sandbox IAM setup",
-     "type": [
-       "terraform_v0.12"
-     ],
-     "description": "IBM Cloud Schematics Workspace to create cloud-pak-sandbox rg and ag",
-     "tags": [
-       "owner:$USER"
-     ],
-     "resource_group": "Default",
-     "template_repo": {
-       "url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/acctsetup",
-       "branch": "main"
-     },
-     "template_data": [
-       {
-         "folder": ".",
-         "type": "terraform_v0.12",
-         "variablestore": [
-           {
-             "name": "resource_group_name",
-             "value": "cloud-pak-sandbox",
-             "type": "string"
-           },
-           {
-             "name": "admins_access_group_name",
-             "value": "CLOUD-PAK-SANDBOX-ADMIN",
-             "type": "string"
-           },
-           {
-             "name": "users_access_group_name",
-             "value": "CLOUD-PAK-SANDBOX-USER",
-             "type": "string"
-           },
-           {
-             "name": "sat_access_group_name",
-             "value": "CLOUD-PAK-SANDBOX-SAT-ADMIN",
-             "type": "string"
-           }
-         ]
-       }
-     ]
-   }
-   ```
-
-2. To set up the cloud-pak-sandbox resource and access groups, run
+1. To initially set up the account run:
 
    ```bash
    ./setup_account.sh cloud-pak-sandbox
    ```
 
-    The `CLOUD-PAK-SANDBOX-ADMIN`, `CLOUD-PAK-SANDBOX-USER`, and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups will be created 
+   This will create
+   - the `cloud-pak-sandbox` resource group
+   - the `CLOUD-PAK-SANDBOX-ADMIN`, `CLOUD-PAK-SANDBOX-USER`, and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups
+   - a service id called `partner-sandbox-admin-id`
+   - an api key for desired region for the service id
 
-3. The Account Manager that has Classic Infrastructure permissions needs to create Classic Infrastructure Keys:
+2. To create additional resource groups with access groups and api keys copy the `cloud-pak-sandbox.json` file and rename it to the new resource group name.  Then run the following:
 
-    ```bash
-   ibmcloud login -sso
-   ibmcloud target -g <resource-group>
-   ibmcloud regions
-   ibmcloud ks api-key reset --region <region>
-    ```
+   ```bash
+   ./create_randa_group.sh <name of resource group>
+   ```
 
-    Repeat these steps for each region and resource group that needs Classic Infrastructure permissions
-
-    To see status of api key for a cluster:
-
-    ```bash
-    ibmcloud ks api-key info --cluster <cluster_name_or_ID>
-    ```
-4. Create LogDNA Activity Tracker service
-
-    ```
-    ibmcloud target -g cloud-pak-sandbox
-    ibmcloud resource service-instance-create logging-instance-global logdnaat 7-day eu-de
-    ibmcloud resource service-instance-create logging-instance-local logdnaat 7-day <zone>
-    ```
-
-5. Add users to the access groups
+3. Add users to the access groups
 
    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
-   
+
     - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
 
     - A user who just needs cluster admin privileges needs to belong to `CLOUD-PAK-SANDBOX-USER`
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `CLOUD-PAK-SANDBOX-SAT-ADMIN`
 
-6. Give support ticket access to ADMIN users:
+4. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
@@ -134,7 +73,7 @@ ibmcloud login -sso
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-7. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
+5. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
     ![enable-vrf](./images/enable-vrf.png)
 

@@ -5,13 +5,13 @@ provider "ibm" {
 }
 
 module "resource-groups" {
-  source = "./rgroups"
+  source = "../modules/resource-group"
 
   resource_group_name = var.resource_group_name
 }
 
 module "access-groups" {
-  source = "./agroups"
+  source = "../modules/access-groups"
 
   resource_group_name       = module.resource-groups.resource_group_name
   resource_group_id         = module.resource-groups.resource_group_id
@@ -22,7 +22,7 @@ module "access-groups" {
 }
 
 module "account" {
-  source = "./account"
+  source = "../modules/account-setup"
 
   at_plan                   = var.at_plan
   region                    = var.region

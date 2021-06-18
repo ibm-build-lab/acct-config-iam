@@ -15,7 +15,7 @@ resource "ibm_iam_access_group_members" "adminaccgroupmem" {
 
 # Creating an API key for service id is not currently supported in IBM provider, so need to do this manually with CLI commands: 
 #
-# ibmcloud iam service-api-key-update partner-sandbox-api-key $SERVICE_ID 
+# ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICE_ID 
 # ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username $SERVICE_ID --region $REGION
 #
 # resource "ibm_iam_service_api_key" "acc_apiKey" {

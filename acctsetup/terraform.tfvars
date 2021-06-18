@@ -1,6 +1,0 @@
-service_id_name = "partner-sandbox-admin-id"
-region = "eu-de"
-sat_access_group_name = "TEST2-SAT-ADMIN"
-users_access_group_name = "TEST2-USER"
-admins_access_group_name = "TEST2-ADMIN"
-resource_group_name = "test2"
