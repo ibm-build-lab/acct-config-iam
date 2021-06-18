@@ -13,16 +13,17 @@ This repository contains a collection of Terraform configurations for configurin
 ## Run from a schematics workspace
 
 1. Create a *schematics* workspace on your local cloud account
-2. List https://github.com/ibm-hcbt/acct-config-iam/randagroups under "GitHub, GitLab or Bitbucket repository URL"
+2. List https://github.com/ibm-hcbt/acct-config-iam/partner-sandbox-acct-setup under "GitHub, GitLab or Bitbucket repository URL"
 3. Leave git access token blank since this is a public repo
 4. Change terraform version to 0.12
 5. Save workspace settings
-6. Enter resource group and access group names in workspae options.
+6. Enter resource group, access group and service id names in workspace options.
 7. Click "Save Changes"
 8. Select "Generate Plan" option at top right of page, when that finishes
 9. Select "Apply Plan" option at top right of page
-10. Verify that your resource group has been created by going to the "Manage", "Account", "Resource Groups" page
-11. Verify that your access groups have been created by going to the "Manage", "Access (IAM)", "Access groups" page
+10. Verify that the resource group has been created by going to the "Manage", "Account", "Resource Groups" page
+11. Verify that the access groups have been created by going to the "Manage", "Access (IAM)", "Access groups" page
+12. Verify that the service id has been created by going to the "Manage", "Account", "Service Ids" page
 
 ## Run from local Terraform client
 
@@ -64,6 +65,6 @@ source ./credentials.sh
 - Run `terraform init` to initialize Terraform
 - Run `terraform apply` to install the configuration
 
-## Steps to set up a Cloud Pak Sandbox account
+## Steps to set up a Partner Sandbox account
 
 Refer to [Sandbox Setup Instructions](./README_SANDBOX.md) for steps to use these TF modules to set up a Cloud Pak Sandbox.
