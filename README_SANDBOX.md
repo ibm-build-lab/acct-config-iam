@@ -28,7 +28,7 @@ Make sure you are logged in to proper cloud account:
 ibmcloud login -sso
 ```
 
-1. To initially set up the account run:
+1. To initially set up the account, run:
 
    ```bash
    ./setup_account.sh cloud-pak-sandbox
@@ -40,21 +40,27 @@ ibmcloud login -sso
    - a service id called `partner-sandbox-admin-id`
    - an api key for desired region for the service id
 
-2. To create additional resource groups with access groups and api keys copy the `cloud-pak-sandbox.json` file and rename it to the new resource group name.  Then run the following:
+2. To create additional resource groups with access groups and api keys copy the `cloud-pak-sandbox-ibm.json` file and rename it to the new resource group name.  Then run the following:
 
    ```bash
-   ./create_randa_group.sh <name of resource group>
+   ./setup_account.sh <name of resource group>
+   ```
+   
+3. To set API key permissions for additional regions, run 
+
+   ```
+   ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username partner-sandbox-admin-id --region $REGION
    ```
 
 3. Add users to the access groups
 
    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
-    - A user who needs to create or configure OpenShift clusters needs to belong to `CLOUD-PAK-SANDBOX-ADMIN`
+    - A user who needs to create or configure OpenShift clusters needs to belong to `-ADMIN`
 
-    - A user who just needs cluster admin privileges needs to belong to `CLOUD-PAK-SANDBOX-USER`
+    - A user who just needs cluster admin privileges needs to belong to `-USER`
 
-    - Users that need additional privileges to manage Cloud Satellite need to belong to `CLOUD-PAK-SANDBOX-SAT-ADMIN`
+    - Users that need additional privileges to manage Cloud Satellite need to belong to `SAT-ADMIN`
 
 4. Give support ticket access to ADMIN users:
 
