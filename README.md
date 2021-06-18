@@ -7,12 +7,8 @@ This repository contains a collection of Terraform configurations for configurin
 | Name | Description |
 | ---------------- | ---------------- |
 | [acctmgrs](https://github.com/ibm-hcbt/acct-config-iam/tree/master/acctmgrs) | Create an access group for account management and add users to make them account managers. |
-| [invite-users](https://github.com/ibm-hcbt/acct-config-iam/tree/master/acctmgrs/invite-users) | Add users to the account. Also give them all Classic Infrastructure permissions. |
-| [acctmgrgroup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/acctmgrs/acctmgrgroup) | Create an access group with policies to manage the account and all resources in it. |
-| | |
-| [acctsetup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/acctsetup) | Create a resource group and access groups for controlling access to an environment. |
-| [rgroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/randagroups/rgroups) | Create a resource group for an environment. |
-| [agroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/randagroups/agroups) | Create the access groups to use a resource group. |
+| [partner-sandbox-acct-setup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/partner-sandbox-acct-setup) | Create resource and access groups, service id and activity tracker |
+| [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/partner-sandbox-randagroups) | Create resource and access groups. |
 
 ## Run from a schematics workspace
 
