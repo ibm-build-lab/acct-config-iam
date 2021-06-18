@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [partner-sandbox-randagroups](https://github.com/ibm-pett/acct-config-iam/tree/master/partner-sandbox-randagroups) | Create a resource group and access groups for controlling access to an environment. |
+| [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/partner-sandbox-randagroups) | Create a resource group and access groups for controlling access to an environment. |
 
 ## Variables
 

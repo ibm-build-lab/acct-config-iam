@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [invite-users](https://github.com/ibm-pett/acct-config-iam/tree/master/acctmgrs/invite-users) | Add users to the account. Also give them all Classic Infrastructure permissions. |
+| [invite-users](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/invite-users) | Add users to the account. Also give them all Classic Infrastructure permissions. |
 
 ## Variables
 

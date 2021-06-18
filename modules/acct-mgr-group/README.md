@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [acctmgrgroup](https://github.com/ibm-pett/acct-config-iam/tree/master/acctmgrs/acctmgrgroup) | Create an access group with policies to manage the account and all resources in it. |
+| [acct-mgr-group](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/acct-mgr-group) | Create an access group with policies to manage the account and all resources in it. |
 
 ## Variables
 

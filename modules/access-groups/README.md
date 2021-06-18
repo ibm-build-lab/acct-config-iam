@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [agroups](https://github.com/ibm-pett/acct-config-iam/tree/master/randagroups/agroups) | Create the access groups to use a resource group. |
+| [access-groups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/access-groups) | Create the access groups to use a resource group. |
 
 ## Variables
 

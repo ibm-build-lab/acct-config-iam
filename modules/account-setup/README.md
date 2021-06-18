@@ -6,7 +6,7 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [account](https://github.com/ibm-pett/acct-config-iam/tree/master/modules/account) | Create service id, api keys and activity tracker instance |
+| [account-setup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/account-setup) | Create service id and activity tracker instance |
 
 ## Variables
 
