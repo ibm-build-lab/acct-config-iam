@@ -46,13 +46,21 @@ ibmcloud login -sso
    ./setup_account.sh <name of resource group>
    ```
    
-3. To set API key permissions for additional regions, run for user that needs this access:
+3.  **Optional** To create API keys user that has infrastructure permissions: 
+
+   ```
+   ibmcloud target -g <resource-group>
+   ibmcloud regions
+   ibmcloud ks api-key reset --region <region>
+   ```
+
+4. To set API key permissions for additional regions, run for user that needs this access:
 
    ```
    ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username <user id> --region $REGION
    ```
 
-3. Add users to the access groups
+5. Add users to the access groups
 
    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
@@ -62,7 +70,7 @@ ibmcloud login -sso
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `SAT-ADMIN`
 
-4. Give support ticket access to ADMIN users:
+6. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
@@ -79,7 +87,7 @@ ibmcloud login -sso
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-5. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
+7. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
     ![enable-vrf](./images/enable-vrf.png)
 
