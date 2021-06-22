@@ -16,6 +16,9 @@ This repository contains a collection of Terraform configurations for configurin
 | admins_access_group_name | The name for the new administrators access group |
 | users_access_group_name | The name for the new users access group |
 | sat_access_group_name | The name for the new Satellite admin access group |
+| service_id_name | The name for Service id used to set up permissions |
+| region | Region to create API key and Activity Tracker in |
+| at_plan | The plan to use for Activity Tracker |
 
 ## Use
 
