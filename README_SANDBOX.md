@@ -46,10 +46,10 @@ ibmcloud login -sso
    ./setup_account.sh <name of resource group>
    ```
    
-3. To set API key permissions for additional regions, run 
+3. To set API key permissions for additional regions, run for user that needs this access:
 
    ```
-   ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username partner-sandbox-admin-id --region $REGION
+   ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username <user id> --region $REGION
    ```
 
 3. Add users to the access groups
