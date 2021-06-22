@@ -46,7 +46,7 @@ ibmcloud login -sso
    ./setup_account.sh <name of resource group>
    ```
    
-3.  **Optional** To create API keys user that has infrastructure permissions: 
+3.  **Optional** To create API keys for a user that has infrastructure permissions: 
 
    ```
    ibmcloud target -g <resource-group>
