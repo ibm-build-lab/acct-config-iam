@@ -34,7 +34,7 @@ sleep 120
 
 ibmcloud target -g $RESOURCE_GROUP
 
-ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id
+ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICE_ID
 
 # ibmcloud ks api-key reset --region $REGION
 #ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username $SERVICE_ID --region $REGION
