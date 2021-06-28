@@ -7,7 +7,7 @@ This repository contains a collection of Terraform modules to help with for conf
 | Name | Description |
 | ---------------- | ---------------- |
 | [access-groups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/access-groups) | Create access groups for account management|
-| [acct-mgr-group](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/acct-mgr) | Create an access group with policies to manage the account and all resources in it.|
+| [acct-mgr-group](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/acct-mgr-group) | Create an access group with policies to manage the account and all resources in it.|
 | [account-setup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/account-setup) | Set up account specific resources such as service id and activity tracker |
 | [invite-users](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/invite-users) | Add users to an account. |
 | [resource-group](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules/resource-group) | Create resource group in account |
