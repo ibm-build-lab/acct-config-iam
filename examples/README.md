@@ -6,14 +6,14 @@ This repository contains a collection of Terraform configurations for configurin
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [acctmgrs](https://github.com/ibm-hcbt/acct-config-iam/tree/master/configurations/acctmgrs) | Create an access group for account management and add users to make them account managers. |
-| [partner-sandbox-acct-setup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/configurations/partner-sandbox-acct-setup) | Create resource and access groups, service id and activity tracker |
-| [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/configurations/partner-sandbox-randagroups) | Create resource and access groups. |
+| [acctmgrs](https://github.com/ibm-hcbt/acct-config-iam/tree/master/acctmgrs) | Create an access group for account management and add users to make them account managers. |
+| [partner-sandbox-acct-setup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/partner-sandbox-acct-setup) | Create resource and access groups, service id and activity tracker |
+| [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/partner-sandbox-randagroups) | Create resource and access groups. |
 
 ## Run from a schematics workspace
 
 1. Create a *schematics* workspace on your local cloud account
-2. List https://github.com/ibm-hcbt/acct-config-iam/configurations/partner-sandbox-acct-setup under "GitHub, GitLab or Bitbucket repository URL"
+2. List https://github.com/ibm-hcbt/acct-config-iam/partner-sandbox-acct-setup under "GitHub, GitLab or Bitbucket repository URL"
 3. Leave git access token blank since this is a public repo
 4. Change terraform version to 0.12
 5. Save workspace settings

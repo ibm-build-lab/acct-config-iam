@@ -27,9 +27,26 @@ resource "ibm_resource_instance" "at_instance" {
   name              = "logging-instance-local"
   service           = "logdnaat"
   plan              = var.at_plan
-  location          = var.region
+  location          = "eu-de"
   resource_group_id = var.resource_group_id
 }
+
+resource "ibm_resource_instance" "at_instance" {
+  name              = "logging-instance-local"
+  service           = "logdnaat"
+  plan              = var.at_plan
+  location          = "us-south"
+  resource_group_id = var.resource_group_id
+}
+
+resource "ibm_resource_instance" "at_instance" {
+  name              = "logging-instance-local"
+  service           = "logdnaat"
+  plan              = var.at_plan
+  location          = "us-east"
+  resource_group_id = var.resource_group_id
+}
+
 
 
 

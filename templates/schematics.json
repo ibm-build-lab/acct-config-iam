@@ -1,0 +1,39 @@
+{
+  "name": "schematics IAM setup",
+  "type": [
+    "terraform_v0.12"
+  ],
+  "description": "IBM Cloud Schematics Workspace to create schematics rg and ag",
+  "tags": [
+    "owner:$USER"
+  ],
+  "resource_group": "Default",
+  "template_repo": {
+    "url": "https://github.com/ibm-hcbt/acct-config-iam/tree/main/randagroups",
+    "branch": "main"
+  },
+  "template_data": [
+    {
+      "folder": ".",
+      "type": "terraform_v0.12",
+      "variablestore": [
+        {
+          "name": "resource_group_name",
+          "value": "schematics",
+          "type": "string"
+        },
+        {
+          "name": "admins_access_group_name",
+          "value": "SCHEMATICS-ADMIN",
+          "type": "string"
+        },
+        {
+          "name": "users_access_group_name",
+          "value": "SCHEMATICS-USER",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}
+

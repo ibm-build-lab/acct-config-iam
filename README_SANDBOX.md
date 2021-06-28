@@ -28,7 +28,7 @@ Make sure you are logged in to proper cloud account:
 ibmcloud login -sso
 ```
 
-1. To initially set up the account, run:
+1. To initially set up the account run:
 
    ```bash
    ./setup_account.sh cloud-pak-sandbox
@@ -40,27 +40,19 @@ ibmcloud login -sso
    - a service id called `partner-sandbox-admin-id`
    - an api key for desired region for the service id
 
-2. To create additional resource groups with access groups and api keys copy the `cloud-pak-sandbox-ibm.json` file and rename it to the new resource group name.  Then run the following:
+2. To create additional resource groups with access groups and api keys copy the `cloud-pak-sandbox-ibm.json` file (make sure that this points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source) and rename it to the new resource group name.  Then run the following:
 
    ```bash
-   ./setup_account.sh <name of resource group>
-   ```
-   
-3.  **Optional** To create API keys for a user that has infrastructure permissions: 
-
-   ```
-   ibmcloud target -g <resource-group>
-   ibmcloud regions
-   ibmcloud ks api-key reset --region <region>
+   ./create_account.sh <name of resource group>
    ```
 
-4. To set API key permissions for additional regions, run for user that needs this access:
+3. Create an API key for Classic Infrastructure permissions:
 
-   ```
-   ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username <user id> --region $REGION
+   ```bash
+   ibmcloud ks credential set classic --infrastructure-api-key KEY --infrastructure-username USERNAME --region REGION
    ```
 
-5. Add users to the access groups
+4. Add users to the access groups
 
    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
@@ -68,26 +60,25 @@ ibmcloud login -sso
 
     - A user who just needs cluster admin privileges needs to belong to `-USER`
 
-    - Users that need additional privileges to manage Cloud Satellite need to belong to `SAT-ADMIN`
+    - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
 
-6. Give support ticket access to ADMIN users:
+5. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
     If those access groups aren't available, try [these](https://cloud.ibm.com/docs/containers?topic=containers-access_reference#infra) commands:
 
     ```bash
-        ibmcloud sl user list
-        ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
-        ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
-        ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
+    ibmcloud sl user list
+    ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
+    ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
+    ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
     ```
 
     NOTE: either account owner needs to do this or parent needs to have these permissions already.
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-7. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
+6. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
     ![enable-vrf](./images/enable-vrf.png)
-

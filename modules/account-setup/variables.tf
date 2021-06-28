@@ -1,12 +1,12 @@
 variable "at_plan" {
   type        = string
   description = "Name for the Admin access group for the environment."
-  default     = "7-day"
+  default     = "30-day"
 }
 
 variable "region" {
   type        = string
-  description = "Region for API Key and Activity Tracker"
+  description = "Region for API Key"
   default     = "us-south"
 }
 

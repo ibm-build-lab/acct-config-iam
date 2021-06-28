@@ -1,9 +1,9 @@
 {
-  "name": "cloud-pak-sandbox-ibm IAM setup",
+  "name": "cloud-pak-sandbox IAM setup",
   "type": [
     "terraform_v0.12"
   ],
-  "description": "IBM Cloud Schematics Workspace to create cloud-pak-sandbox-ibm rg and ag",
+  "description": "IBM Cloud Schematics Workspace to create cloud-pak-sandbox rg and ag",
   "tags": [
     "owner:$USER"
   ],
@@ -19,17 +19,22 @@
       "variablestore": [
         {
           "name": "resource_group_name",
-          "value": "cloud-pak-sandbox-ibm",
+          "value": "US-Bank-Pilot",
           "type": "string"
         },
         {
           "name": "admins_access_group_name",
-          "value": "CLOUD-PAK-SANDBOX-IBM-ADMIN",
+          "value": "US-BANK-PILOT-ADMIN",
           "type": "string"
         },
         {
           "name": "users_access_group_name",
-          "value": "CLOUD-PAK-SANDBOX-IBM-USER",
+          "value": "US-BANK-PILOT-USER",
+          "type": "string"
+        },
+        {
+          "name": "sat_access_group_name",
+          "value": "US-BANK-PILOT-SAT-ADMIN",
           "type": "string"
         }
       ]
