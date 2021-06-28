@@ -10,7 +10,7 @@ Clone this repo and cd into acct-config-iam
 
     - Uncomment and add list of Account Manager users to this [terraform.tfvars](./acctmgrs/acctmgrgroup/terraform.tfvars) file
     
-    - Run scripts from `https://github.com/ibm-hcbt/acct-config-iam/tree/main/acctmgrs` either using [Schematics](./README.md#run-from-a-schematics-workspace) or local [Terraform](./README.md#run-from-local-terraform-client) client. If using schematics, create and apply new workspace in the `Default` resource group.
+    - Run scripts from `https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/acctmgrs` either using [Schematics](./examples/README.md#run-from-a-schematics-workspace) or local [Terraform](./examples/README.md#run-from-local-terraform-client) client. If using schematics, create and apply new workspace in the `Default` resource group.
 
     Once run, the `ACCT-MGR-ADMIN` access group with the following roles will be created:
     ![acct_mgr](./images/accountmgr_roles.png)
@@ -31,7 +31,7 @@ ibmcloud login -sso
 1. To initially set up the account run:
 
    ```bash
-   ./setup_account.sh cloud-pak-sandbox
+   ./utils/setup_account.sh cloud-pak-sandbox
    ```
 
    This will create
@@ -40,13 +40,20 @@ ibmcloud login -sso
    - a service id called `partner-sandbox-admin-id`
    - an api key for desired region for the service id
 
-2. To create additional resource groups with access groups and api keys copy the `cloud-pak-sandbox-ibm.json` file (make sure that this points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source) and rename it to the new resource group name.  Then run the following:
+2. To create additional resource groups with access groups and api keys 
 
    ```bash
-   ./create_account.sh <name of resource group>
+   cd templates
+   cp cloud-pak-sandbox-ibm.json <new resource group>.json
+   ```
+   
+   Make sure that this points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and rename it to the new resource group name.  Then run the following:
+
+   ```bash
+   ./utils/create_account.sh <new resource group>
    ```
 
-3. Create an API key for Classic Infrastructure permissions:
+3. Create an API key for Classic Infrastructure permissions for users that need it:
 
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key KEY --infrastructure-username USERNAME --region REGION
