@@ -14,7 +14,7 @@ This repository contains a collection of Terraform modules to help with for conf
 
 ## Usage
 
-For examples on how to use these modules, refer to the configurations listed [here](../README.md#configurations).
+For examples on how to use these modules, refer to the configurations listed [here](../examples/README.md#configurations).
 
 
 
