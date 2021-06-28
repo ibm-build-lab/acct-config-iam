@@ -1,19 +1,18 @@
 # IBM Terraform configurations for IBM Cloud Identity and Access Management (IAM)
 
-This repository contains a collection of Terraform configurations for configuring IBM Cloud accounts using [Identity and Access Management](https://cloud.ibm.com/docs/account?topic=account-userroles) (IAM).
+This repository contains a collection of Terraform modules and examples for configuring IBM Cloud accounts using [Identity and Access Management](https://cloud.ibm.com/docs/account?topic=account-userroles) (IAM).
 
-## Configurations
+## Terraform files
 
 | Name | Description |
 | ---------------- | ---------------- |
-| [acctmgrs](https://github.com/ibm-hcbt/acct-config-iam/tree/master/configurations/acctmgrs) | Create an access group for account management and add users to make them account managers. |
-| [partner-sandbox-acct-setup](https://github.com/ibm-hcbt/acct-config-iam/tree/master/configurations/partner-sandbox-acct-setup) | Create resource and access groups, service id and activity tracker |
-| [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/master/configurations/partner-sandbox-randagroups) | Create resource and access groups. |
+| [modules](https://github.com/ibm-hcbt/acct-config-iam/tree/master/modules) | Modules to perform IAM operations |
+| [examples](https://github.com/ibm-hcbt/acct-config-iam/tree/master/examples) | Example configurations combining the modules to perform partner sandbox account setup  |
 
 ## Run from a schematics workspace
 
 1. Create a *schematics* workspace on your local cloud account
-2. List https://github.com/ibm-hcbt/acct-config-iam/configurations/partner-sandbox-acct-setup under "GitHub, GitLab or Bitbucket repository URL"
+2. List https://github.com/ibm-hcbt/acct-config-iam/examples/partner-sandbox-acct-setup under "GitHub, GitLab or Bitbucket repository URL"
 3. Leave git access token blank since this is a public repo
 4. Change terraform version to 0.12
 5. Save workspace settings
