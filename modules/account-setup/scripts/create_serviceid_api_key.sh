@@ -1,5 +1,6 @@
 #!/bin/bash
 
+ibmcloud api
 ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICEID
 
 #export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICEID | awk '/API Key/{print $3}') 
