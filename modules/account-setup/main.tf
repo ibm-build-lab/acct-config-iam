@@ -2,15 +2,15 @@
 # Module to add account specific services
 
 # create service id
-resource "ibm_iam_service_id" "serviceID" { 
-  name = var.service_id_name
+resource "ibm_iam_service_id" "serviceID" {
+  name        = var.service_id_name
   description = "Service ID used assign Classic Infrastructure and cluster creation priviledges"
 }
 
 # Add service id to admin access group
-resource "ibm_iam_access_group_members" "adminaccgroupmem" { 
-  access_group_id = var.serviceid_access_group_id 
-  iam_service_ids = [ibm_iam_service_id.serviceID.id] 
+resource "ibm_iam_access_group_members" "adminaccgroupmem" {
+  access_group_id = var.serviceid_access_group_id
+  iam_service_ids = [ibm_iam_service_id.serviceID.id]
 }
 
 # Creating an API key for service id is not currently supported in IBM provider, so need to do this manually with CLI commands: 
@@ -22,6 +22,17 @@ resource "ibm_iam_access_group_members" "adminaccgroupmem" {
 #   name = "serviceID_apikey"
 #   iam_service_id = ibm_iam_service_id.serviceID.iam_id
 # }
+
+resource "null_resource" "create_api_key" {
+  provisioner "local-exec" {
+    command        = "${path.module}/scripts/create_serviceid_api_key.sh"
+    environment = {
+      SERVICEID      = ibm_iam_service_id.serviceID.iam_id
+      # RESOURCE_GROUP = var.resource_group_id
+      # REGION         = var.region
+    }
+  }
+}
 
 resource "ibm_resource_instance" "at_instance1" {
   name              = "logging-instance-eu-de"

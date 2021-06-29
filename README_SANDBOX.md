@@ -31,26 +31,31 @@ ibmcloud login -sso
 1. To initially set up the account run:
 
    ```bash
-   ./utils/setup_account.sh cloud-pak-sandbox
+   cd utils
+   ./setup_account.sh cloud-pak-sandbox
    ```
 
    This will create
    - the `cloud-pak-sandbox` resource group
-   - the `CLOUD-PAK-SANDBOX-ADMIN`, `CLOUD-PAK-SANDBOX-USER`, and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups
    - a service id called `partner-sandbox-admin-id`
-   - an api key for desired region for the service id
+   - the `CLOUD-PAK-SANDBOX-ADMIN`,
+         `CLOUD-PAK-SANDBOX-USER`, `CLOUD-PAK-SANDBOX-SERVICEID` and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups
+   - an api key for the service id
 
-2. To create additional resource groups with access groups and api keys 
+2. To create additional resource groups with access groups
 
    ```bash
    cd templates
    cp cloud-pak-sandbox-ibm.json <new resource group>.json
    ```
    
-   Make sure that this points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and rename it to the new resource group name.  Then run the following:
+   Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and rename it to the new resource group name.  Then do the following:
 
    ```bash
-   ./utils/create_account.sh <new resource group>
+   cd utils
+   ./create_rg_ag.sh <new resource group>
+   ibmcloud login --apikey $SERVICEID_API_KEY -g <new resource group>
+   ibmcloud ks api-key reset --region $REGION
    ```
 
 3. Create an API key for Classic Infrastructure permissions for users that need it:

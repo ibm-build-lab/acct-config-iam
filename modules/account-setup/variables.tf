@@ -21,11 +21,6 @@ variable "service_id_name" {
   default     = "partner-sandbox-admin-id"
 }
 
-# variable "admins_access_group_id" {
-#   type        = string
-#   description = "Admin access group id"
-# }
-
 variable "serviceid_access_group_id" {
   type        = string
   description = "Admin access group id"
