@@ -32,3 +32,9 @@ variable "sat_access_group_name" {
   description = "Name for the Satellite access group for the environment."
   default     = "TEST-SAT-ADMIN"
 }
+
+variable "serviceid_access_group_name" {
+  type        = string
+  description = "Name for the Service ID access group for the environment."
+  default     = "TEST-SERVICEID"
+}

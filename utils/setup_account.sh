@@ -17,7 +17,7 @@ read REGION
 
 mkdir -p ./logs
 echo "Creating workspace for resource group"
-ibmcloud schematics workspace new --file ${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
+ibmcloud schematics workspace new --file templates/${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
 sleep 60
 echo "Sleeping for 60 seconds"
 WORKSPACE_ID=$(jq -r '.id' ./logs/${RESOURCE_GROUP}.json) 

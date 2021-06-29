@@ -27,3 +27,13 @@ output "users_access_group_id" {
   description = "ID of the newly created access group for Users"
   value       = ibm_iam_access_group.users_access_group.id
 }
+
+output "serviceid_access_group_name" {
+  description = "Name of the newly created access group for ServiceID"
+  value       = ibm_iam_access_group.serviceid_access_group.name
+}
+
+output "serviceid_access_group_id" {
+  description = "ID of the newly created access group for ServiceID"
+  value       = ibm_iam_access_group.serviceid_access_group.id
+}

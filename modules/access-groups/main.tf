@@ -214,3 +214,109 @@ resource "ibm_iam_access_group_policy" "sat_link_policy" {
   }
 }
 
+/*
+ * create SERVICEID access group, permissions to create a cluster.  
+ * See https://cloud.ibm.com/docs/containers?topic=containers-access_reference#cluster_create_permissions
+ */
+resource "ibm_iam_access_group" "serviceid_access_group" {
+  name = var.serviceid_access_group_name
+  description = join(" ", ["Cluster creation access for service ID in the", var.resource_group_name, "environment"])
+}
+
+# Administrator platform access role for Kubernetes Service in the console in resource group.
+# Writer or Manager service access role for Kubernetes Service in the console in resource group.
+resource "ibm_iam_access_group_policy" "serviceid_kubernetes_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles =  ["Administrator", "Manager"]
+  resources  {
+    service = "containers-kubernetes"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+# Administrator platform access role for Container Registry in the console at the Account level. 
+# Do not limit policies for IBM Cloud Container Registry to the resource group level.
+resource "ibm_iam_access_group_policy" "serviceid_registry_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles =  ["Administrator"]
+  resources  {
+    service = "container-registry"
+  }
+}
+
+# If you plan to expose apps with Ingress, assign the user Administrator or Editor platform access role
+# and the Manager service access role for Certificate Manager in resource group.
+resource "ibm_iam_access_group_policy" "serviceid_certmgr_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles =  ["Editor", "Manager"]
+  resources  {
+    service = "cloudcerts"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+# Viewer platform access role for the resource group access.
+resource "ibm_iam_access_group_policy" "serviceid_resource_group_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles =  ["Viewer"]
+  resources  {
+    resource_type = "resource-group"
+    resource = var.resource_group_id
+  }
+}
+
+# The Service ID creator role to Identity and Access Management in the console.
+# The User API key creator role to Identity and Access Management in the console.
+resource "ibm_iam_access_group_policy" "serviceid_iam_group_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles =  ["Service ID creator","User API key creator"]
+  resources  {
+    service = "iam-identity"
+  }
+}
+
+# appropriate permission to the key management service (KMS) provider
+resource "ibm_iam_access_group_policy" "serviceid_kms_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles =  ["Administrator"]
+  resources  {
+    service = "kms"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+# VPC clusters only: Administrator platform access role for VPC Infrastructure.
+resource "ibm_iam_access_group_policy" "serviceid_is_rg_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles           = ["Administrator"]
+  resources {
+    service = "is"
+    resource_group_id = var.resource_group_id
+  }
+}
+
+# Need to specify these resource types in Default rg due to bug in VPC infrastructure
+resource "ibm_iam_access_group_policy" "serviceid_is_floating_ip_default_rg_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles           = ["Editor"]
+  resources {
+    service = "is"
+    resource_type = "floating_ip"
+    resource_group_id = var.default_resource_group_id
+  }
+}
+
+# Need to specify these resource types in Default rg due to bug in VPC infrastructure
+resource "ibm_iam_access_group_policy" "serviceid_is_volume_default_rg_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles           = ["Editor"]
+  resources {
+    service = "is"
+    resource_type = "volume"
+    resource_group_id = var.default_resource_group_id
+  }
+}
+
+# Classic clusters only: Super User role or the minimum required permissions for classic infrastructure.
+# This will need to be done manually.
+# See https://cloud.ibm.com/docs/account?topic=account-mngclassicinfra
