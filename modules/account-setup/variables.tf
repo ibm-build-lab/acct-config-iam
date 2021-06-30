@@ -1,7 +1,7 @@
-# variable "ibmcloud_api_key" {
-#   type        = string
-#   description = "IBM Cloud API Key"
-# }
+#variable "ibmcloud_api_key" {
+#  type        = string
+#  description = "IBM Cloud API key"
+#}
 
 variable "at_plan" {
   type        = string
@@ -30,4 +30,3 @@ variable "serviceid_access_group_id" {
   type        = string
   description = "Admin access group id"
 }
-
