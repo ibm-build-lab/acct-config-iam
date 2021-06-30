@@ -269,7 +269,7 @@ resource "ibm_iam_access_group_policy" "serviceid_resource_group_policy" {
 # The User API key creator role to Identity and Access Management in the console.
 resource "ibm_iam_access_group_policy" "serviceid_iam_group_policy" {
   access_group_id = ibm_iam_access_group.serviceid_access_group.id
-  roles =  ["Service ID creator","User API key creator"]
+  roles =  ["Service ID creator","User API key creator","Operator"]
   resources  {
     service = "iam-identity"
   }

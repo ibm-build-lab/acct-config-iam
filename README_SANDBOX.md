@@ -35,34 +35,53 @@ ibmcloud login -sso
    ./setup_account.sh cloud-pak-sandbox
    ```
 
-   This will create
+   This will start a schematics workspace that will create:
    - the `cloud-pak-sandbox` resource group
    - a service id called `partner-sandbox-admin-id`
    - the `CLOUD-PAK-SANDBOX-ADMIN`,
          `CLOUD-PAK-SANDBOX-USER`, `CLOUD-PAK-SANDBOX-SERVICEID` and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups
-   - an api key for the service id
 
-2. To create additional resource groups with access groups
-
-   ```bash
-   cd templates
-   cp cloud-pak-sandbox-ibm.json <new resource group>.json
-   ```
-   
-   Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and rename it to the new resource group name.  Then do the following:
+   When the workspace is done running, set up api keys for region and resource group:
 
    ```bash
    cd utils
-   ./create_rg_ag.sh <new resource group>
-   ibmcloud login --apikey $SERVICEID_API_KEY -g <new resource group>
+   ./create_apikeys.sh <resource-group> <region>
+   ```
+
+   Make a note of the Service ID IAM Api Key as you may need it in step 2.
+
+2. **Optional:** Create additional resource and access groups for other projects within the account:
+
+   ```bash
+   cd templates
+   cp test.json <new resource group>.json
+   ```
+
+   Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and replace the names of the access groups.  
+
+   Then do the following:
+
+   ```bash
+   cd utils
+   ./setup_account.sh <new resource group>
+   ```
+
+   Create additional api keys for new resource group:
+
+   ```bash
+   ibmcloud login --apikey <serviceid iam apikey> -g <new resource group>
    ibmcloud ks api-key reset --region $REGION
    ```
 
-3. Create an API key for Classic Infrastructure permissions for users that need it:
+3. Create an API key for Classic Infrastructure permissions:
 
    ```bash
-   ibmcloud ks credential set classic --infrastructure-api-key KEY --infrastructure-username USERNAME --region REGION
+   ibmcloud ks credential set classic --infrastructure-api-key <class infra api key> --infrastructure-username <username> --region <region>
    ```
+
+   - To find `<username>` run `ibmcloud sl users list` on the account.
+
+   - For instructions on how to create the `<classic infra api key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key)
 
 4. Add users to the access groups
 

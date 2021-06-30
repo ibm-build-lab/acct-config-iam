@@ -23,16 +23,17 @@ resource "ibm_iam_access_group_members" "adminaccgroupmem" {
 #   iam_service_id = ibm_iam_service_id.serviceID.iam_id
 # }
 
-resource "null_resource" "create_api_key" {
-  provisioner "local-exec" {
-    command        = "${path.module}/scripts/create_serviceid_api_key.sh"
-    environment = {
-      SERVICEID      = ibm_iam_service_id.serviceID.iam_id
-      # RESOURCE_GROUP = var.resource_group_id
-      # REGION         = var.region
-    }
-  }
-}
+# resource "null_resource" "create_api_key" {
+#   provisioner "local-exec" {
+#     command        = "${path.module}/scripts/create_serviceid_api_key.sh"
+#     environment = {
+#       SERVICEID      = ibm_iam_service_id.serviceID.iam_id
+#       RESOURCE_GROUP = var.resource_group_id
+#       REGION         = var.region
+#       IC_API_KEY     = var.ibmcloud_api_key
+#     }
+#   }
+# }
 
 resource "ibm_resource_instance" "at_instance1" {
   name              = "logging-instance-eu-de"

@@ -1,3 +1,8 @@
+# variable "ibmcloud_api_key" {
+#   type        = string
+#   description = "IBM Cloud API Key"
+# }
+
 variable "at_plan" {
   type        = string
   description = "Name for the Admin access group for the environment."
