@@ -1,6 +1,6 @@
 # Steps to set up a Partner Sandbox account
 
-Clone this repo and cd into acct-config-iam
+Clone this repo and cd into `acct-config-iam`
 
 ## Account Owner Tasks
 
