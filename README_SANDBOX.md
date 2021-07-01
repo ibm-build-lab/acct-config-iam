@@ -8,7 +8,7 @@ Clone this repo and cd into acct-config-iam
 
 2. Create the access group and users for Account Managers
 
-    - Uncomment and add list of Account Manager users to this [terraform.tfvars](./acctmgrs/acctmgrgroup/terraform.tfvars) file
+    - Uncomment and add list of Account Manager users to this [terraform.tfvars](../examples/acctmgrs/terraform.tfvars) file
     
     - Run scripts from `https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/acctmgrs` either using [Schematics](./examples/README.md#run-from-a-schematics-workspace) or local [Terraform](./examples/README.md#run-from-local-terraform-client) client. If using schematics, create and apply new workspace in the `Default` resource group.
 
