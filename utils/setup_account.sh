@@ -1,7 +1,5 @@
 #!/bin/bash
 
-SERVICE_ID=partner-sandbox-admin-id
-
 if [[ $# -eq 0 ]]; then
         echo "Resource group required as argument.  Syntax 'setup_account.sh <resource_group>'" 1>&2
         exit 1
