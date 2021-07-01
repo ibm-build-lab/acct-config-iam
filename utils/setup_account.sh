@@ -18,7 +18,7 @@ read REGION
 mkdir -p ./logs
 echo "Creating workspace for resource group"
 ibmcloud schematics workspace new --file ../templates/${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
-echo "Sleeping for 30 seconds"
+echo "Sleeping for 15 seconds"
 sleep 15
 WORKSPACE_ID=$(jq -r '.id' ./logs/${RESOURCE_GROUP}.json) 
 
@@ -32,5 +32,3 @@ ibmcloud schematics apply --id $WORKSPACE_ID --force
 echo "Sleeping for 2 minutes"
 sleep 120
 
-# ibmcloud login --apikey $SERVICEID_API_KEY -g $RESOURCE_GROUP
-# ibmcloud ks api-key reset --region $REGION
