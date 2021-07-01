@@ -7,7 +7,7 @@ resource "ibm_iam_service_id" "serviceID" {
   description = "Service ID used assign Classic Infrastructure and cluster creation priviledges"
 }
 
-# Add service id to admin access group
+# Add service id to serviceid access group
 resource "ibm_iam_access_group_members" "adminaccgroupmem" {
   access_group_id = var.serviceid_access_group_id
   iam_service_ids = [ibm_iam_service_id.serviceID.id]
@@ -23,6 +23,7 @@ resource "ibm_iam_access_group_members" "adminaccgroupmem" {
 #   iam_service_id = ibm_iam_service_id.serviceID.iam_id
 # }
 
+# Possible alternative is to run script to create api key, but this requires a user's IAM api key to log into ibmcloud
 # resource "null_resource" "create_api_key" {
 #   provisioner "local-exec" {
 #     command        = "${path.module}/scripts/create_serviceid_api_key.sh"

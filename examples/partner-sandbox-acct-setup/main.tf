@@ -25,7 +25,6 @@ module "account-setup" {
   at_plan                   = var.at_plan
   region                    = var.region
   resource_group_id         = module.resource-group.resource_group_id
-  # admins_access_group_id    = module.access-groups.admins_access_group_id
   serviceid_access_group_id = module.access-groups.serviceid_access_group_id
   service_id_name           = var.service_id_name
 }
