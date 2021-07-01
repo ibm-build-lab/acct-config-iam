@@ -53,8 +53,7 @@ ibmcloud login -sso
 2. **Optional:** Create additional resource and access groups for other projects within the account:
 
    ```bash
-   cd templates
-   cp test.json <new resource group>.json
+   cp templates/test.json templates/<new resource group>.json
    ```
 
    Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and replace the names of the access groups.  
