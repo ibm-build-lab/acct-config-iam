@@ -29,5 +29,4 @@ ibmcloud schematics apply --id $WORKSPACE_ID --force
 echo "Sleeping for 2 minutes"
 sleep 120
 
-ibmcloud target -g $RESOURCE_GROUP
 ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICE_ID
