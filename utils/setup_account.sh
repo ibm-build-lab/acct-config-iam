@@ -18,8 +18,8 @@ read REGION
 mkdir -p ./logs
 echo "Creating workspace for resource group"
 ibmcloud schematics workspace new --file ${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
-sleep 60
-echo "Sleeping for 60 seconds"
+sleep 30
+echo "Sleeping for 30 seconds"
 WORKSPACE_ID=$(jq -r '.id' ./logs/${RESOURCE_GROUP}.json) 
 
 echo "Planning workspace"
@@ -33,8 +33,4 @@ echo "Sleeping for 2 minutes"
 sleep 120
 
 ibmcloud target -g $RESOURCE_GROUP
-
 ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICE_ID
-
-# ibmcloud ks api-key reset --region $REGION
-#ibmcloud ks credential set classic --infrastructure-api-key partner-sandbox-api-key --infrastructure-username $SERVICE_ID --region $REGION
