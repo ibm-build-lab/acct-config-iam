@@ -1,3 +1,8 @@
+#variable "ibmcloud_api_key" {
+#  type        = string
+#  description = "IBM Cloud API key"
+#}
+
 variable "at_plan" {
   type        = string
   description = "Name for the Admin access group for the environment."
@@ -21,8 +26,7 @@ variable "service_id_name" {
   default     = "partner-sandbox-admin-id"
 }
 
-variable "admins_access_group_id" {
+variable "serviceid_access_group_id" {
   type        = string
   description = "Admin access group id"
 }
-

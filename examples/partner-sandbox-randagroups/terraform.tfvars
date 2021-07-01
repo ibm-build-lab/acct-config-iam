@@ -1,4 +1,5 @@
 sat_access_group_name = "TEST-SAT-ADMIN"
 users_access_group_name = "TEST-USER"
 admins_access_group_name = "TEST-ADMIN"
+serviceid_access_group_name = "TEST-SERVICEID"
 resource_group_name = "test"

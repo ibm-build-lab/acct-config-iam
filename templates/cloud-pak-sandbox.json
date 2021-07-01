@@ -36,6 +36,11 @@
           "name": "sat_access_group_name",
           "value": "CLOUD-PAK-SANDBOX-SAT-ADMIN",
           "type": "string"
+        },
+        {
+          "name": "serviceid_access_group_name",
+          "value": "CLOUD-PAK-SANDBOX-SERVICEID",
+          "type": "string"
         }
       ]
     }

@@ -31,6 +31,16 @@
           "name": "users_access_group_name",
           "value": "CLOUD-PAK-SANDBOX-IBM-USER",
           "type": "string"
+        },
+        {
+          "name": "sat_access_group_name",
+          "value": "CLOUD-PAK-SANDBOX-IBM-SAT-ADMIN",
+          "type": "string"
+        },
+        {
+          "name": "serviceid_access_group_name",
+          "value": "CLOUD-PAK-SANDBOX-IBM-SERVICEID",
+          "type": "string"
         }
       ]
     }
