@@ -10,9 +10,6 @@ if [[ ! -f "../templates/$1.json" ]]; then
     exit 1
 fi
 
-echo "What is region 'ibmcloud regions' for api key: "
-read REGION
-
 mkdir -p ./logs
 echo "Creating workspace for resource group"
 ibmcloud schematics workspace new --file ../templates/${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
