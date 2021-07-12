@@ -53,8 +53,16 @@ ibmcloud login -sso
    cd utils
    ./create_apikeys.sh <resource-group> <region>
    ```
+    
+   or manually run these commands: 
+   
+   ```bash
+   export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}') 
+   ibmcloud login --apikey $SERVICEID_API_KEY -g <resource-group>
+   ibmcloud ks api-key reset --region <region>
+   ```
 
-   **IMPORTANT:** Make a note of the Service ID IAM Api Key as you may need it in step 2.
+   **IMPORTANT:** Make a note of the Service id IAM API key as you may need it in step 2. This will be saved in `serviceid-api-key.json` file
 
 2. **Optional:** Create additional resource and access groups for other projects within the account:
 
