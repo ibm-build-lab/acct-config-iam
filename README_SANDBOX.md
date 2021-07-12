@@ -78,7 +78,7 @@ ibmcloud login -sso
    ibmcloud ks api-key reset --region $REGION
    ```
 
-3. Create an API key for Classic Infrastructure permissions:
+3. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. If user is removed from the account, this will have to be repeated for new valid user:
 
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key <classic infra api key> --infrastructure-username <username> --region <region>
