@@ -54,7 +54,7 @@ ibmcloud login -sso
    ./create_apikeys.sh <resource-group> <region>
    ```
 
-   Make a note of the Service ID IAM Api Key as you may need it in step 2.
+   **IMPORTANT: ** Make a note of the Service ID IAM Api Key as you may need it in step 2.
 
 2. **Optional:** Create additional resource and access groups for other projects within the account:
 
