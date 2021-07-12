@@ -31,15 +31,21 @@ ibmcloud login -sso
 1. To initially set up the account run:
 
    ```bash
+   # We typically call the first resource group cloud-pak-sandbox
+   cp templates/test.json templates/<resource-group>.json        
+   ```
+   
+   Edit the <resource-group>.json to replace `test` resource group with new resource group name.  Also replace `TEST` with new resource group name (using uppercase).
+    
+   ```bash
    cd utils
-   ./setup_account.sh cloud-pak-sandbox
+   ./setup_account.sh <resource-group>
    ```
 
    This will start a schematics workspace that will create:
-   - the `cloud-pak-sandbox` resource group
+   - the new resource group
    - a service id called `partner-sandbox-admin-id`
-   - the `CLOUD-PAK-SANDBOX-ADMIN`,
-         `CLOUD-PAK-SANDBOX-USER`, `CLOUD-PAK-SANDBOX-SERVICEID` and `CLOUD-PAK-SANDBOX-SAT-ADMIN` access groups
+   - the `-ADMIN`, `-USER`, `-SERVICEID` and `-ADMIN` access groups for the new resource group
 
    When the workspace is done running, set up api keys for region and resource group:
 
@@ -56,9 +62,7 @@ ibmcloud login -sso
    cp templates/test.json templates/<new resource group>.json
    ```
 
-   Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and replace the names of the access groups.  
-
-   NOTE: if account was created previously, you may need to manually create the `partner-sandbox-admin-id` service id before running the following commands.
+   Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and replace the names of the access groups. Replace `test` and `TEST` to new resource and access group names.
    
    To create the resource and access groups do the following:
 
