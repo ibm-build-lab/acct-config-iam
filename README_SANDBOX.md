@@ -45,7 +45,7 @@ ibmcloud login -sso
    This will start a schematics workspace that will create:
    - the new resource group
    - a service id called `partner-sandbox-admin-id`
-   - the `-ADMIN`, `-USER`, `-SERVICEID` and `-ADMIN` access groups for the new resource group
+   - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
 
    When the workspace is done running, set up api keys for region and resource group:
 
