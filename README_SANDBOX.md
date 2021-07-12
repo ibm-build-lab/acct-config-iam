@@ -48,13 +48,6 @@ ibmcloud login -sso
    - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
 
    When the workspace is done running, set up api keys for region and resource group:
-
-   ```bash
-   cd utils
-   ./create_apikeys.sh <resource-group> <region>
-   ```
-    
-   or manually run these commands: 
    
    ```bash
    export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}') 
