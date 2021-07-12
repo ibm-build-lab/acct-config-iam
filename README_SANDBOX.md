@@ -58,7 +58,9 @@ ibmcloud login -sso
 
    Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and replace the names of the access groups.  
 
-   Then do the following:
+   NOTE: if account was created previously, you may need to manually create the `partner-sandbox-admin-id` service id before running the following commands.
+   
+   To create the resource and access groups do the following:
 
    ```bash
    cd utils
