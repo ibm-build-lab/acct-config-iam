@@ -81,7 +81,7 @@ ibmcloud login -sso
 3. Create an API key for Classic Infrastructure permissions:
 
    ```bash
-   ibmcloud ks credential set classic --infrastructure-api-key <class infra api key> --infrastructure-username <username> --region <region>
+   ibmcloud ks credential set classic --infrastructure-api-key <classic infra api key> --infrastructure-username <username> --region <region>
    ```
 
    - To find `<username>` run `ibmcloud sl user list` on the account.
