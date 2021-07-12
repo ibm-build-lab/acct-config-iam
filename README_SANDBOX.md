@@ -84,7 +84,7 @@ ibmcloud login -sso
    ibmcloud ks credential set classic --infrastructure-api-key <class infra api key> --infrastructure-username <username> --region <region>
    ```
 
-   - To find `<username>` run `ibmcloud sl users list` on the account.
+   - To find `<username>` run `ibmcloud sl user list` on the account.
 
    - For instructions on how to create the `<classic infra api key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key)
 
