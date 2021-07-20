@@ -81,13 +81,15 @@ ibmcloud login -sso
 
 3. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. If user is removed from the account, this will have to be repeated for new valid user:
 
+   - create a `<classic infra api key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
+
+   - find your `<username>` run `ibmcloud sl user list` on the account
+    
+   - set ks credentials
+
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key <classic infra api key> --infrastructure-username <username> --region <region>
    ```
-
-   - To find your `<username>` run `ibmcloud sl user list` on the account.
-
-   - For instructions on how to create a `<classic infra api key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key)
 
 4. Add users to the access groups
 
