@@ -31,7 +31,7 @@ ibmcloud login -sso
 1. To initially set up the account run:
 
    ```bash
-   # We typically call the first resource group cloud-pak-sandbox
+   # We typically call the first resource group partner-sandbox
    cp templates/test.json templates/<resource-group>.json        
    ```
    
