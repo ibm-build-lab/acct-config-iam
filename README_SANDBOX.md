@@ -52,6 +52,12 @@ ibmcloud login -sso
    ```bash
    ./create_apikeys.sh <resource-group> <region>
    ```
+    
+   To add additional api-keys execute the command 
+   ```bash
+   ibmcloud target -g $RESOURCE_GROUP
+   ibmcloud ks api-key reset --region $REGION
+   ```
 
    **IMPORTANT:** Make a note of the Service id IAM API key as you may need it in step 2. This will be saved in `serviceid-api-key.json` file
 
