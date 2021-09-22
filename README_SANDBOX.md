@@ -31,7 +31,7 @@ ibmcloud login -sso
 1. To initially set up the account run:
 
    ```bash
-   # We typically call the first resource group cloud-pak-sandbox
+   # We typically call the first resource group partner-sandbox
    cp templates/test.json templates/<resource-group>.json        
    ```
    
@@ -50,9 +50,7 @@ ibmcloud login -sso
    When the workspace is done running, set up api keys for region and resource group:
    
    ```bash
-   export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}') 
-   ibmcloud login --apikey $SERVICEID_API_KEY -g <resource-group>
-   ibmcloud ks api-key reset --region <region>
+   ./create_apikeys.sh <resource-group> <region>
    ```
 
    **IMPORTANT:** Make a note of the Service id IAM API key as you may need it in step 2. This will be saved in `serviceid-api-key.json` file
