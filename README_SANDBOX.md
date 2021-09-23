@@ -39,7 +39,7 @@ ibmcloud login -sso
     
    ```bash
    cd utils
-   ./setup_account.sh <resource-group>
+   ./setup_account.sh partner-sandbox
    ```
 
    This will start a schematics workspace that will create:
@@ -50,12 +50,12 @@ ibmcloud login -sso
    When the workspace is done running, set up api keys for region and resource group:
    
    ```bash
-   ./create_apikeys.sh <resource-group> <region>
+   ./create_apikeys.sh partner-sandbox <region>
    ```
     
    To add additional api-keys execute the command 
    ```bash
-   ibmcloud target -g $RESOURCE_GROUP
+   ibmcloud target -g partner-sandbox
    ibmcloud ks api-key reset --region $REGION
    ```
 
