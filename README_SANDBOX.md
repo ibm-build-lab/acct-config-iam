@@ -76,7 +76,7 @@ ibmcloud login -sso
 4. Create Service ID and api keys:
    
    ```bash
-   export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key $SERVICE_ID --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
+   export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
    ibmcloud login --apikey $SERVICEID_API_KEY -g <resource_group>
    ibmcloud ks api-key reset --region <region>
    ```
