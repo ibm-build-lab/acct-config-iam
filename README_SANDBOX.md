@@ -47,7 +47,6 @@ ibmcloud login -sso
    - a service id called `partner-sandbox-admin-id`
    - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
 
-
 2. **Optional:** Create additional resource and access groups for other projects within the account:
 
    ```bash
@@ -77,7 +76,7 @@ ibmcloud login -sso
    
    ```bash
    export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
-   ibmcloud login --apikey $SERVICEID_API_KEY -g <resource_group>
+   ibmcloud login --apikey $SERVICEID_API_KEY -g partner-sandbox
    ibmcloud ks api-key reset --region <region>
    ```
     
