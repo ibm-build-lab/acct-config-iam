@@ -80,9 +80,9 @@ ibmcloud login -sso
    ibmcloud ks api-key reset --region <region>
    ```
     
-   To add api-keys for additional regions, execute the command 
+   To add api-keys for additional regions and resource groups, execute the command 
    ```bash
-   ibmcloud target -g partner-sandbox
+   ibmcloud target -g <resource_group>
    ibmcloud ks api-key reset --region <new_region>
    ```
 
