@@ -39,21 +39,13 @@ ibmcloud login -sso
     
    ```bash
    cd utils
-   ./setup_account.sh <resource-group>
+   ./setup_account.sh partner-sandbox
    ```
 
    This will start a schematics workspace that will create:
    - the new resource group
    - a service id called `partner-sandbox-admin-id`
    - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
-
-   When the workspace is done running, set up api keys for region and resource group:
-   
-   ```bash
-   ./create_apikeys.sh <resource-group> <region>
-   ```
-
-   **IMPORTANT:** Make a note of the Service id IAM API key as you may need it in step 2. This will be saved in `serviceid-api-key.json` file
 
 2. **Optional:** Create additional resource and access groups for other projects within the account:
 
@@ -64,32 +56,39 @@ ibmcloud login -sso
    Make sure that this new template points to the [partner-sandbox-randagroups](https://github.com/ibm-hcbt/acct-config-iam/tree/main/examples/partner-sandbox-randagroups) repo for its source and replace the names of the access groups. Replace `test` and `TEST` to new resource and access group names.
    
    To create the resource and access groups do the following:
-
    ```bash
    cd utils
    ./setup_account.sh <new resource group>
-   ```
+   ```    
+3. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
 
-   Create additional api keys for new resource group:
+   - create a `<classic_infra_api_key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
 
-   ```bash
-   ibmcloud login --apikey <serviceid iam apikey> -g <new resource group>
-   ibmcloud ks api-key reset --region $REGION
-   ```
-
-3. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. If user is removed from the account, this will have to be repeated for new valid user:
-
-   - create a `<classic infra api key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
-
-   - find your `<username>` run `ibmcloud sl user list` on the account
+   - get `<username>` by running `ibmcloud sl user list` on the account
     
    - set ks credentials
 
    ```bash
-   ibmcloud ks credential set classic --infrastructure-api-key <classic infra api key> --infrastructure-username <username> --region <region>
+   ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
+   ```
+    
+4. Create Service ID and api keys:
+   
+   ```bash
+   export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
+   ibmcloud login --apikey $SERVICEID_API_KEY -g partner-sandbox
+   ibmcloud ks api-key reset --region <region>
+   ```
+    
+   To add api-keys for additional regions, execute the command 
+   ```bash
+   ibmcloud target -g partner-sandbox
+   ibmcloud ks api-key reset --region <new_region>
    ```
 
-4. Add users to the access groups
+   **IMPORTANT:** Make a note of the Service id IAM API key. This will be saved in `serviceid-api-key.json` file
+   
+5. Add users to the access groups
 
    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
@@ -99,7 +98,7 @@ ibmcloud login -sso
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
 
-5. Give support ticket access to ADMIN users:
+6. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
