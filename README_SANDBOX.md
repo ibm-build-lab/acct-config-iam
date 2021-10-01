@@ -66,7 +66,7 @@ ibmcloud login -sso
 
    - get `<username>` by running `ibmcloud sl user list` on the account
     
-   - set ks credentials
+   - set ks credentials for all needed regions
 
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
