@@ -255,6 +255,16 @@ resource "ibm_iam_access_group_policy" "serviceid_certmgr_policy" {
   }
 }
 
+# COS needs to be readable for VPC creation
+resource "ibm_iam_access_group_policy" "users_cloud_object_storage_policy" {
+  access_group_id = ibm_iam_access_group.serviceid_access_group.id
+  roles           = ["Viewer", "Writer"]
+  resources {
+    service = "cloud-object-storage"
+    resource_group_id = var.resource_group_id
+  }
+}
+
 # Viewer platform access role for the resource group access.
 resource "ibm_iam_access_group_policy" "serviceid_resource_group_policy" {
   access_group_id = ibm_iam_access_group.serviceid_access_group.id
