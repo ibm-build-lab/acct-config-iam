@@ -11,19 +11,19 @@ if [[ ! -f "../templates/$1.json" ]]; then
 fi
 
 mkdir -p ./logs
-echo "Creating workspace for resource group"
+echo "Creating workspace for ${RESOURCE_GROUP} resource group"
 ibmcloud schematics workspace new --file ../templates/${RESOURCE_GROUP}.json --json > ./logs/${RESOURCE_GROUP}.json
-#echo "Sleeping for 15 seconds"
-sleep 15
+echo "Sleeping for 45 seconds"
+sleep 45
 WORKSPACE_ID=$(jq -r '.id' ./logs/${RESOURCE_GROUP}.json) 
 
 echo "Planning workspace"
 ibmcloud schematics plan --id $WORKSPACE_ID     
-#echo "Sleeping for 1 minute"
+echo "Sleeping for 1 minute"
 sleep 60
 
 echo "Applying workspace"
 ibmcloud schematics apply --id $WORKSPACE_ID --force 
-#echo "Sleeping for 2 minutes"
-#sleep 120
+
+echo "To track the progress of this workspace to to 
 
