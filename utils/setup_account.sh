@@ -25,5 +25,5 @@ sleep 60
 echo "Applying workspace"
 ibmcloud schematics apply --id $WORKSPACE_ID --force 
 
-echo "To track the progress of this workspace to to 
-
+echo "To see progress, login to cloud.ibm.com and go to: https://cloud.ibm.com/schematics/workspaces/$WORKSPACE_ID"
+echo "Once there click 'Activity' on the left, then select 'View Log' from the 'Applying Plan' activity"
