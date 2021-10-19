@@ -110,6 +110,15 @@ resource "ibm_iam_access_group_policy" "admins_is_volume_default_rg_policy" {
   }
 }
 
+resource "ibm_iam_access_group_policy" "admins_cloud_object_storage_policy" {
+  access_group_id = ibm_iam_access_group.admins_access_group.id
+  roles           = ["Administrator"]
+  resources {
+    service = "cloud-object-storage"
+    resource_group_id = var.resource_group_id
+  }
+}
+
 /*
  * create USER access group
  */
@@ -258,7 +267,7 @@ resource "ibm_iam_access_group_policy" "serviceid_certmgr_policy" {
 # COS needs to be readable for VPC creation
 resource "ibm_iam_access_group_policy" "serviceid_cloud_object_storage_policy" {
   access_group_id = ibm_iam_access_group.serviceid_access_group.id
-  roles           = ["Viewer", "Writer"]
+  roles           = ["Administrator"]
   resources {
     service = "cloud-object-storage"
     resource_group_id = var.resource_group_id
