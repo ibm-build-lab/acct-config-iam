@@ -29,7 +29,7 @@ ibmcloud login -sso
 ```
 ### 1. Set up access to run Terraform locally
 
-Terraform requires the an **API Key** to access IBM Cloud. To create the key using cli in a terminal window, execute following commands replacing `<RESOURCE_GROUP_NAME>` with the resource group where you are planning to work and install everything:
+Terraform requires an **API Key** to access IBM Cloud. To create the key using cli in a terminal window, execute following commands replacing `<RESOURCE_GROUP_NAME>` with the resource group where you are planning to work and install everything:
 
 If you have an IBM Cloud API Key that is either not set or you don't have the JSON file when it was created, you must recreate the key. Delete the old one if it won't be in use anymore.
 
