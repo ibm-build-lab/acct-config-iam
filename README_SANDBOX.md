@@ -91,8 +91,7 @@ ibmcloud login -sso
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
    ```
-    
-### 5. Create Service ID and api keys:
+5. Create Service ID and api keys:
    
    ```bash
    export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
@@ -108,33 +107,33 @@ ibmcloud login -sso
 
    **IMPORTANT:** Make a note of the Service id IAM API key. This will be saved in `serviceid-api-key.json` file
    
-### 6. Add users to the access groups
+6. Add users to the access groups
 
-External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
+    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
-- A user who needs to create or configure OpenShift clusters needs to belong to `-ADMIN`
+    - A user who needs to create or configure OpenShift clusters needs to belong to `-ADMIN`
 
-- A user who just needs cluster admin privileges needs to belong to `-USER`
+    - A user who just needs cluster admin privileges needs to belong to `-USER`
 
-- Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
+    - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
 
-### 7. Give support ticket access to ADMIN users:
+7. Give support ticket access to ADMIN users:
 
-Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
+    Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
-If those access groups aren't available, try [these](https://cloud.ibm.com/docs/containers?topic=containers-access_reference#infra) commands:
+    If those access groups aren't available, try [these](https://cloud.ibm.com/docs/containers?topic=containers-access_reference#infra) commands:
 
-```bash
-ibmcloud sl user list
-ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
-ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
-ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
-```
+    ```bash
+    ibmcloud sl user list
+    ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
+    ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
+    ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
+    ```
 
-NOTE: either account owner needs to do this or parent needs to have these permissions already.
+    NOTE: either account owner needs to do this or parent needs to have these permissions already.
 
-In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
+    In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-### 8. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
+8. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
-![enable-vrf](./images/enable-vrf.png)
+    ![enable-vrf](./images/enable-vrf.png)
