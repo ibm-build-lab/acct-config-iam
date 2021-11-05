@@ -3,7 +3,7 @@
   "type": [
     "terraform_v0.12"
   ],
-  "description": "IBM Cloud Schematics Workspace to create cloud-pak-sandbox rg and ag",
+  "description": "IBM Cloud Schematics Workspace to create partner-sandbox rg and ag",
   "tags": [
     "owner:$USER"
   ],
