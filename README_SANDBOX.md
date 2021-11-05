@@ -27,8 +27,36 @@ Make sure you are logged in to proper cloud account:
 ```bash
 ibmcloud login -sso
 ```
+1. Set up access to run Terraform locally
 
-1. To initially set up the account run:
+Terraform requires the an **API Key** to access IBM Cloud. The credentials can be set using environment variables or - optionally and recommended - in your own credentials.sh file.
+
+To create the key using cli in a terminal window, log into IBM Cloud:
+```bash
+ibmcloud login --sso
+ibmcloud resource groups
+ibmcloud target -g <RESOURCE_GROUP_NAME>
+```
+
+Execute following commands replacing `<RESOURCE_GROUP_NAME>` with the resource group where you are planning to work and install everything:
+
+If you have an IBM Cloud API Key that is either not set or you don't have the JSON file when it was created, you must recreate the key. Delete the old one if it won't be in use anymore.
+
+```bash
+ibmcloud iam api-keys       # Identify your old API Key Name
+ibmcloud iam api-key-delete NAME
+```
+
+Create new key:
+
+```bash
+ibmcloud iam api-key-create TerraformKey -d "API Key for Terraform" --file ~/.ibm_api_key.json
+export IC_API_KEY=$(grep '"apikey":' ~/.ibm_api_key.json | sed 's/.*: "\(.*\)".*/\1/')
+```
+
+For more information read [Creating an API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key)
+
+2. To initially set up the account run:
 
    ```bash
    # We typically call the first resource group partner-sandbox
@@ -47,7 +75,7 @@ ibmcloud login -sso
    - a service id called `partner-sandbox-admin-id`
    - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
 
-2. **Optional:** Create additional resource and access groups for other projects within the account:
+3. **Optional:** Create additional resource and access groups for other projects within the account:
 
    ```bash
    cp templates/test.json templates/<new resource group>.json
@@ -60,7 +88,7 @@ ibmcloud login -sso
    cd utils
    ./setup_account.sh <new resource group>
    ```    
-3. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
+4. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
 
    - create a `<classic_infra_api_key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
 
@@ -72,7 +100,7 @@ ibmcloud login -sso
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
    ```
     
-4. Create Service ID and api keys:
+5. Create Service ID and api keys:
    
    ```bash
    export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
@@ -88,7 +116,7 @@ ibmcloud login -sso
 
    **IMPORTANT:** Make a note of the Service id IAM API key. This will be saved in `serviceid-api-key.json` file
    
-5. Add users to the access groups
+6. Add users to the access groups
 
    External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
@@ -98,7 +126,7 @@ ibmcloud login -sso
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
 
-6. Give support ticket access to ADMIN users:
+7. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
@@ -115,6 +143,6 @@ ibmcloud login -sso
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-6. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
+8. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
     ![enable-vrf](./images/enable-vrf.png)
