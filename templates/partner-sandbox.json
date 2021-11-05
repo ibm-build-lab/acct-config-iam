@@ -1,5 +1,5 @@
 {
-  "name": "test IAM setup",
+  "name": "partner sandbox IAM setup",
   "type": [
     "terraform_v0.12"
   ],
