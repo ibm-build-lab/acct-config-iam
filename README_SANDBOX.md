@@ -27,27 +27,27 @@ Make sure you are logged in to proper cloud account:
 ```bash
 ibmcloud login -sso
 ```
-### 1. Set up access to run Terraform locally
+1. Set up access to run Terraform locally
 
-Terraform requires an **API Key** to access IBM Cloud. To create the key using cli in a terminal window, execute following commands replacing `<RESOURCE_GROUP_NAME>` with the resource group where you are planning to work and install everything:
+    Terraform requires an **API Key** to access IBM Cloud. To create the key using cli in a terminal window, execute following commands replacing `<RESOURCE_GROUP_NAME>` with the resource group where you are planning to work and install everything:
 
-If you have an IBM Cloud API Key that is either not set or you don't have the JSON file when it was created, you must recreate the key. Delete the old one if it won't be in use anymore.
+    If you have an IBM Cloud API Key that is either not set or you don't have the JSON file when it was created, you must recreate the key. Delete the old one if it won't be in use anymore.
 
-```bash
-ibmcloud iam api-keys       # Identify your old API Key Name
-ibmcloud iam api-key-delete NAME
-```
+    ```bash
+    ibmcloud iam api-keys       # Identify your old API Key Name
+    ibmcloud iam api-key-delete NAME
+    ```
 
-Create new key:
+    Create new key:
 
-```bash
-ibmcloud iam api-key-create TerraformKey -d "API Key for Terraform" --file ~/.ibm_api_key.json
-export IC_API_KEY=$(grep '"apikey":' ~/.ibm_api_key.json | sed 's/.*: "\(.*\)".*/\1/')
-```
+    ```bash
+    ibmcloud iam api-key-create TerraformKey -d "API Key for Terraform" --file ~/.ibm_api_key.json
+    export IC_API_KEY=$(grep '"apikey":' ~/.ibm_api_key.json | sed 's/.*: "\(.*\)".*/\1/')
+    ```
 
-For more information read [Creating an API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key)
+    For more information read [Creating an API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key)
 
-### 2. To initially set up the account run:
+2. To initially set up the account run:
 
    ```bash
    # We typically call the first resource group partner-sandbox
@@ -66,7 +66,7 @@ For more information read [Creating an API key](https://cloud.ibm.com/docs/accou
    - a service id called `partner-sandbox-admin-id`
    - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
 
-### 3. **Optional:** Create additional resource and access groups for other projects within the account:
+3. **Optional:** Create additional resource and access groups for other projects within the account:
 
    ```bash
    cp templates/test.json templates/<new resource group>.json
@@ -79,8 +79,8 @@ For more information read [Creating an API key](https://cloud.ibm.com/docs/accou
    cd utils
    ./setup_account.sh <new resource group>
    ```    
-### 4. Create an API key for Classic Infrastructure permissions. 
-This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
+4. Create an API key for Classic Infrastructure permissions. 
+   This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
 
    - create a `<classic_infra_api_key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
 
@@ -110,31 +110,31 @@ This only needs to be done for one valid user on the account that has full infra
    
 ### 6. Add users to the access groups
 
-   External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
+External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
-    - A user who needs to create or configure OpenShift clusters needs to belong to `-ADMIN`
+- A user who needs to create or configure OpenShift clusters needs to belong to `-ADMIN`
 
-    - A user who just needs cluster admin privileges needs to belong to `-USER`
+- A user who just needs cluster admin privileges needs to belong to `-USER`
 
-    - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
+- Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
 
 ### 7. Give support ticket access to ADMIN users:
 
-    Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
+Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
-    If those access groups aren't available, try [these](https://cloud.ibm.com/docs/containers?topic=containers-access_reference#infra) commands:
+If those access groups aren't available, try [these](https://cloud.ibm.com/docs/containers?topic=containers-access_reference#infra) commands:
 
-    ```bash
-    ibmcloud sl user list
-    ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
-    ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
-    ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
-    ```
+```bash
+ibmcloud sl user list
+ibmcloud sl user permission-edit <user_id> --permission TICKET_ADD --enable true
+ibmcloud sl user permission-edit <user_id> --permission TICKET_EDIT --enable true
+ibmcloud sl user permission-edit <user_id> --permission TICKET_VIEW --enable true
+```
 
-    NOTE: either account owner needs to do this or parent needs to have these permissions already.
+NOTE: either account owner needs to do this or parent needs to have these permissions already.
 
-    In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
+In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
 ### 8. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
-    ![enable-vrf](./images/enable-vrf.png)
+![enable-vrf](./images/enable-vrf.png)
