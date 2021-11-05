@@ -79,7 +79,8 @@ For more information read [Creating an API key](https://cloud.ibm.com/docs/accou
    cd utils
    ./setup_account.sh <new resource group>
    ```    
-### 4. Create an API key for Classic Infrastructure permissions. This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
+### 4. Create an API key for Classic Infrastructure permissions. 
+This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
 
    - create a `<classic_infra_api_key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
 
