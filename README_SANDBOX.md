@@ -91,7 +91,7 @@ ibmcloud login -sso
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
    ```
-5. Create Service ID and api keys:
+5. Create Service ID api keys:
    
    ```bash
    export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
