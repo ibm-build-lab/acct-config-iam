@@ -47,7 +47,14 @@ ibmcloud login -sso
 
     For more information read [Creating an API key](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key)
 
-2. To initially set up the account run:
+2. Clone this repo
+
+   ```
+   git clone https://github.com/ibm-hcbt/acct-config-iam.git
+   cd acct-config-iam
+   ```
+ 
+3. To initially set up the account run:
 
    ```bash
    # We typically call the first resource group partner-sandbox
@@ -66,7 +73,7 @@ ibmcloud login -sso
    - a service id called `partner-sandbox-admin-id`
    - the `-ADMIN`, `-USER`, `-SERVICEID` and `SAT-ADMIN` access groups for the new resource group
 
-3. **Optional:** Create additional resource and access groups for other projects within the account:
+4. **Optional:** Create additional resource and access groups for other projects within the account:
 
    ```bash
    cp templates/test.json templates/<new resource group>.json
@@ -79,7 +86,7 @@ ibmcloud login -sso
    cd utils
    ./setup_account.sh <new resource group>
    ```    
-4. Create an API key for Classic Infrastructure permissions. 
+5. Create an API key for Classic Infrastructure permissions. 
    This only needs to be done for one valid user on the account that has full infrastructure permissions. **NOTE:** If user is removed from the account, this will have to be repeated for new valid user:
 
    - create a `<classic_infra_api_key>`, go [here](https://github.com/ibm-hcbt/cloud-pak-sandboxes/blob/master/terraform/CREDENTIALS.md#create-an-ibm-cloud-classic-infrastructure-api-key) for instructions
@@ -91,7 +98,7 @@ ibmcloud login -sso
    ```bash
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
    ```
-5. Create Service ID api keys:
+6. Create Service ID api keys:
    
    ```bash
    export SERVICEID_API_KEY=$(ibmcloud iam service-api-key-create partner-sandbox-api-key partner-sandbox-admin-id --file serviceid-api-key.json -d "API key for partner sandbox service ID"| awk '/API Key/{print $3}')
@@ -107,7 +114,7 @@ ibmcloud login -sso
 
    **IMPORTANT:** Make a note of the Service id IAM API key. This will be saved in `serviceid-api-key.json` file
    
-6. Add users to the access groups
+7. Add users to the access groups
 
     External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
@@ -117,7 +124,7 @@ ibmcloud login -sso
 
     - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
 
-7. Give support ticket access to ADMIN users:
+8. Give support ticket access to ADMIN users:
 
     Add Access Groups: **Add cases and view orders**, **Edit cases**, and **View cases**.
 
@@ -134,6 +141,6 @@ ibmcloud login -sso
 
     In addition, try the steps [here](https://cloud.ibm.com/docs/openshift?topic=openshift-cs_troubleshoot_clusters#cs_totp)
 
-8. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
+9. **Optional** If partner wants to enable [VRF](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint) on the account:
 
     ![enable-vrf](./images/enable-vrf.png)
