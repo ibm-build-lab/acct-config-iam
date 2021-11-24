@@ -54,7 +54,7 @@ ibmcloud login -sso
    cd acct-config-iam
    ```
  
-3. To initially set up the account run:
+3. Set up the account with resource and access groups
 
    ```bash
    # We typically call the first resource group partner-sandbox
