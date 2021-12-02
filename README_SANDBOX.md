@@ -113,16 +113,19 @@ ibmcloud login -sso
    ```
 
    **IMPORTANT:** Make a note of the Service id IAM API key. This will be saved in `serviceid-api-key.json` file
-   
+       
 7. Add users to the access groups
 
     External users need to register for cloud accounts [here](https://cloud.ibm.com/registration)
 
-    - A user who needs to create or configure OpenShift clusters needs to belong to `-ADMIN`
+    - A user who needs to create or configure OpenShift clusters needs to belong to the `-ADMIN` access group
 
-    - A user who just needs cluster admin privileges needs to belong to `-USER`
+    - A user who just needs cluster admin privileges needs to belong to the `-USER` access group
 
-    - Users that need additional privileges to manage Cloud Satellite need to belong to `-SAT-ADMIN`
+    - Users that need additional privileges to manage Cloud Satellite need to belong to the `-SAT-ADMIN` access group
+    
+    - For IBM Cloud Satellite usage, add the `partner-sandbox-service-id` to the `-SAT-ADMIN` access group
+
 
 8. Give support ticket access to ADMIN users:
 
