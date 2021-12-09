@@ -96,6 +96,7 @@ ibmcloud login -sso
    - set ks credentials for all needed regions
 
    ```bash
+   ibmcloud login -sso -g partner-sandbox
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
    ```
 6. Create Service ID api keys:
