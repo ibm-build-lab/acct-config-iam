@@ -216,7 +216,7 @@ resource "ibm_iam_access_group_policy" "sat_service_policy" {
 
 resource "ibm_iam_access_group_policy" "sat_link_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Satellite Link Administrator","Satellite Link Source Access Controller"]
+  roles =  ["Administrator","Satellite Link Administrator","Satellite Link Source Access Controller"]
   resources  {
     service = "satellite"
     resource_type = "link"
@@ -234,7 +234,7 @@ resource "ibm_iam_access_group_policy" "sat_config_policy" {
 
 resource "ibm_iam_access_group_policy" "sat_subscription_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Editor", "Manager"]
+  roles =  ["Administrator", "Manager"]
   resources  {
     service = "satellite"
     resource_type = "subscription"
@@ -243,7 +243,7 @@ resource "ibm_iam_access_group_policy" "sat_subscription_policy" {
 
 resource "ibm_iam_access_group_policy" "sat_clustergroup_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Editor", "Manager"]
+  roles =  ["Administrator", "Manager"]
   resources  {
     service = "satellite"
     resource_type = "clustergroup"
@@ -252,10 +252,19 @@ resource "ibm_iam_access_group_policy" "sat_clustergroup_policy" {
 
 resource "ibm_iam_access_group_policy" "sat_cluster_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Manager"]
+  roles =  ["Administrator","Manager"]
   resources  {
     service = "satellite"
     resource_type = "cluster"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_location_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Administrator"]
+  resources  {
+    service = "satellite"
+    resource_type = "location"
   }
 }
 
