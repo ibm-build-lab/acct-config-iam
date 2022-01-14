@@ -25,7 +25,7 @@ resource "ibm_iam_access_group_policy" "admins_certmgr_policy" {
 
 resource "ibm_iam_access_group_policy" "admins_kubernetes_policy" {
   access_group_id = ibm_iam_access_group.admins_access_group.id
-  roles =  ["Administrator", "Manager"]
+  roles =  ["Administrator", "Manager", "Viewer"]
   resources  {
     service = "containers-kubernetes"
     resource_group_id = var.resource_group_id
@@ -216,10 +216,46 @@ resource "ibm_iam_access_group_policy" "sat_service_policy" {
 
 resource "ibm_iam_access_group_policy" "sat_link_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Satellite Link Source and Endpoint Controller"]
+  roles =  ["Satellite Link Administrator","Satellite Link Source Access Controller"]
   resources  {
     service = "satellite"
     resource_type = "link"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_config_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Editor", "Manager", "Writer"]
+  resources  {
+    service = "satellite"
+    resource_type = "configuration"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_subscription_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Editor", "Manager"]
+  resources  {
+    service = "satellite"
+    resource_type = "subscription"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_clustergroup_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Editor", "Manager"]
+  resources  {
+    service = "satellite"
+    resource_type = "clustergroup"
+  }
+}
+
+resource "ibm_iam_access_group_policy" "sat_cluster_policy" {
+  access_group_id = ibm_iam_access_group.sat_access_group.id
+  roles =  ["Manager"]
+  resources  {
+    service = "satellite"
+    resource_type = "cluster"
   }
 }
 
