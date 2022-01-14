@@ -203,12 +203,12 @@ resource "ibm_iam_access_group_policy" "users_support_policy" {
 
 resource "ibm_iam_access_group" "sat_access_group" {
   name = var.sat_access_group_name
-  description = join(" ", ["Satellite Admininstrators in the", var.resource_group_name, "environment"])
+  description = join(" ", ["Satellite Administrators in the", var.resource_group_name, "environment"])
 }
 
 resource "ibm_iam_access_group_policy" "sat_service_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Administrator"]
+  roles =  ["Administrator", "Manager"]
   resources  {
     service = "satellite"
   }

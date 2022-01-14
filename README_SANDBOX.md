@@ -96,6 +96,7 @@ ibmcloud login -sso
    - set ks credentials for all needed regions
 
    ```bash
+   ibmcloud login -sso -g partner-sandbox
    ibmcloud ks credential set classic --infrastructure-api-key <classic_infra_api_key> --infrastructure-username <username> --region <region>
    ```
 6. Create Service ID api keys:
@@ -108,11 +109,24 @@ ibmcloud login -sso
     
    To add api-keys for additional regions and resource groups, execute the command 
    ```bash
-   ibmcloud target -g <resource_group>
+   ibmcloud target -g partner-sandbox
    ibmcloud ks api-key reset --region <new_region>
    ```
 
    **IMPORTANT:** Make a note of the Service id IAM API key. This will be saved in `serviceid-api-key.json` file
+    
+   If you run into problems creating the API keys as `partner-sandbox-admin-id`, you may need to create API keys under your id first, then for the `partner-sandbox-admin-id`:
+    
+    ```bash
+   ibmcloud -login -sso -g partner-sandbox
+   ibmcloud target 
+   ibmcloud ks api-key reset --region <region 1>
+   ibmcloud ks api-key reset --region <region 2>
+   ibmcloud login --apikey $SERVICEID_API_KEY -g partner-sandbox
+   ibmcloud ks api-key reset --region <region 1>
+   ibmcloud ks api-key reset --region <region 2>
+
+   ```
        
 7. Add users to the access groups
 
