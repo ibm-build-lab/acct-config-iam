@@ -216,8 +216,8 @@ resource "ibm_iam_access_group_policy" "sat_service_policy" {
 
 resource "ibm_iam_access_group_policy" "sat_link_policy" {
   access_group_id = ibm_iam_access_group.sat_access_group.id
-  roles =  ["Administrator","Satellite Link Source and Endpoint Controller","Satellite Link Source Access Controller"]
-#   roles =  ["Administrator","Satellite Link Administrator","Satellite Link Source Access Controller"]
+#   roles =  ["Administrator","Satellite Link Source and Endpoint Controller","Satellite Link Source Access Controller"]
+  roles =  ["Administrator","Satellite Link Administrator","Satellite Link Source Access Controller"]
   resources  {
     service = "satellite"
     resource_type = "link"
